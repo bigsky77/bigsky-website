@@ -12,9 +12,11 @@ export default function Home() {
       <Header/>
         <div>
           <h1 class="text-center font-neue text-8xl text-indian-red">BigSky</h1>
-          <Image src={Photo35} height={200} width={200}/>
-          <Image src={Photo35} height={200} width={200}/>
-          <Image src={Photo35} height={200} width={200}/>
+          <div class="grid-cols-3 span-20 flex justify-around content-center">
+            <Image src={Photo35} height={200} width={200}/>
+            <Image src={Photo35} height={200} width={200}/>
+            <Image src={Photo35} height={200} width={200}/>
+          </div>
         </div>
       <Footer/>
     </div>
