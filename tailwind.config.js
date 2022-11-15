@@ -14,6 +14,7 @@ module.exports = {
       },
       fontFamily: {
         neue: ("NeueMachine"),
+        italics: ("NeueMachina-PlainRegularItalic"),
       },
     },
   },
