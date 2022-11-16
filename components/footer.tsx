@@ -2,10 +2,10 @@ import Link from "next/link";
 
 const Footer = () => {
   return(
-    <div class="pt-80">
+    <div class="pt-56">
     <div class="border-solid border-t-2 border-burned-gold">
       <div class="relative h-10 font-neue text-burned-gold">
-        <div class="grid-cols-3 span-10 flex justify-around content-center">
+        <div class="space-x-1 grid-cols-3 span-10 flex justify-around content-center">
           <Link href="/">
             <h1>home&nbsp;&nbsp;</h1>
           </Link>

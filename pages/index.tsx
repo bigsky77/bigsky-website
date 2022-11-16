@@ -14,9 +14,9 @@ export default function Home() {
       <Header/>
         <div>
           <h1 class="text-center font-neue text-8xl text-indian-red">BigSky</h1>
-            <h1 class="text-center font-italics text-4xl text-burned-gold">legendary technology for a limitless future</h1>
-          <div class="grid-cols-3 span-14 flex justify-around content-center font-neue text-burned-gold">
-            <Link href="arcade/arcade" class="border-solid  border-burned-gold border-4 hover:border-indian-red">
+            <h1 class="text-center font-italics text-4xl text-burned-gold pt-6">legendary technology for a limitless future</h1>
+          <div class="grid-cols-3 span-14 flex justify-center space-x-24  content-center font-neue text-burned-gold pt-24">
+            <Link href="arcade/arcade" class="border-solid border-burned-gold border-4 hover:border-indian-red">
               <Image src={Photo35} height={200} width={200}/>
               arcade
             </Link>  
@@ -34,3 +34,20 @@ export default function Home() {
     </div>
   )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

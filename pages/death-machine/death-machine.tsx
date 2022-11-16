@@ -9,6 +9,9 @@ const DeathMachine = () => {
   return(
     <div class="h-screen bg-dark-cyan">
       <Header/>
+        <div class="font-neue text-6xl text-center pt-60 pb-56">
+          coming soon 💀
+        </div>
       <Footer/>
     </div>
   )
