@@ -2,27 +2,29 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { formatAddress } from "../lib/helpers";
-import { Web3Provider } from '@ethersproject/providers'
+import { connectorsByName, Metamask } from "./connectors";
+import {ethers} from 'ethers'
 
-const ConnectWallet = () => {   
-  const [showWalletOptions, setShowWalletOptions] = useState(false);
-  const [showDisconnectWalllet, setShowDisconnectWallet] = useState(false);
+const ConnectWallet = (props: any) => {   
+  
+  const connectMetamask = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const accounts = await provider.send('eth_requestAccounts', []); 
+    const signer = provider.getSigner();
+    
+    showResult(true)
+  };
 
-  const { active, account, activate, deactivate } = useWeb3React<Web3Provider>();
+  const getLibrary = (provider) => {
+    const library = new ethers.providers.Web3Provider(provider);
+    library.pollingInterval = 8000; 
+    return library;
+  };
 
   return(
-    <ConnectWalletContainer class="absolute right-5 top-7 border-double border-burned-gold border-4 font-neue text-burned-gold hover:border-indian-red">
-      { active ?  (
-        <AddressCont onClick={() => setShowDisconnectWallet(true)}>
-          {formatAddress(account)}
-        </AddressCont>
-      ) : (
-        <StyledButton onClick={() => setShowWalletOptions(true)}>
-          Connect wallet
-        </StyledButton>
-      )}
-      connect wallet
-    </ConnectWalletContainer>
+    <div> 
+    {connectMetamask} 
+    </div>
   )
 }
 
