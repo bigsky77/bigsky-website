@@ -13,24 +13,8 @@ export default function Home() {
     <div class="h-screen bg-dark-cyan">
       <Header/>
         <div>
-          <h1 class="text-center font-neue text-8xl text-indian-red">BigSky</h1>
-            <h1 class="text-center font-italics text-4xl text-burned-gold pt-6">legendary technology for a limitless future</h1>
-          <div class="grid-cols-3 span-14 flex justify-center space-x-24  content-center font-neue text-burned-gold pt-24">
-            <Link href="arcade/arcade" class="border-solid border-burned-gold border-4 hover:border-indian-red">
-              <Image src={Photo35} height={200} width={200}/>
-              arcade
-            </Link>  
-            <Link href="writing/writing" class="border-solid  border-burned-gold border-4 hover:border-indian-red">
-              <Image src={Photo35} height={200} width={200}/>
-              writing
-            </Link>  
-            <Link href="death-machine/death-machine" class="border-solid  border-burned-gold border-4 hover:border-indian-red">
-              <Image src={Photo35} height={200} width={200}/>
-              death-machine 
-            </Link>  
-          </div>
+          <h1 class="text-center font-neue text-9xl text-indian-red absolute left-40 bottom-36">BigSky</h1>
         </div>
-      <Footer/>
     </div>
   )
 }
