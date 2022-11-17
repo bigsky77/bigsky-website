@@ -16,7 +16,7 @@ export default function Home() {
           <div class="absolute top-72">
             <h1 class="text-center font-neue text-9xl text-indian-red">BigSky</h1>
               <div class="font-italics pt-8 text-6xl text-burned-gold">
-               <Typewriter onInit={(typewriter) => {
+               <Typewriter options={{skipAddStyles: true}} onInit={(typewriter) => {
                   typewriter.typeString('anything is possible...')
                   .callFunction(() => {
                     console.log('String typed out!');
