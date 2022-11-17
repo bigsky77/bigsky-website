@@ -1,7 +1,7 @@
 import Sphynx from '../public/sphynx.jpg.png'
 import Image from 'next/image'
 import Link from "next/link"
-import ConnectWallet from '../app/wallet.tsx'
+import ConnectWallet from '../app/wallet'
 
 const NavBar = () => {
   return(

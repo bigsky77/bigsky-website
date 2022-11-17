@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Link from "next/link";
 import Image from 'next/image'
-import Header from '../components/header.tsx'
-import Footer from '../components/footer.tsx'
+import Header from '../components/header'
+import Footer from '../components/footer'
 import Typewriter from 'typewriter-effect';
-import NavBar from '../components/navbar.tsx'
+import NavBar from '../components/navbar'
 
 const PlaceHolder = () => {
   return(

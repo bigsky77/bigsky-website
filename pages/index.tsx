@@ -2,11 +2,10 @@ import Head from 'next/head'
 import Link from "next/link";
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Header from '../components/header.tsx'
-import Footer from '../components/footer.tsx'
+import Header from '../components/header'
+import Footer from '../components/footer'
 import Sphynx from '../public/sphynx.jpg'
 import Photo35 from '../public/photo35.jpg'
-import Rotator from '../public/rotator.tsx'
 
 export default function Home() {
   return (

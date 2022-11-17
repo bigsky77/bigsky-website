@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useWeb3React } from "@web3-react/core";
 import { formatAddress } from '../lib/helpers'
-import CustomModal from '../lib/customModal.tsx'
+import CustomModal from '../lib/customModal'
 import { connectorsByName, Metamask } from "./connectors";
 
 const ConnectWallet = (props: any) => {   
