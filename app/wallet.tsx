@@ -50,40 +50,9 @@ const ConnectWallet = (props: any) => {
   };
 
   return(
-    <div class="flex justify-content align-items-center font-neue text-burned-gold"> 
-      { active ? (
-         <button class="absolute right-5 top-7 border-single border-burned-gold border-2 " onClick={() => setShowDisconnectWallet(true)}>
-           {formatAddress(account)} 
-        </button> 
-    ) : (
-        <button class="absolute right-5 top-7 border-single border-burned-gold border-2 w-auto font-neue text-burned-gold hover:border-indian-red hover:text-indian-red" onClick={() => setShowWalletOptions(true)}>
-            connect wallet 
-        </button>
-        )}
+      <button type="button" class="text-white bg-cyan-dark border-solid border-2 border-burned-gold hover:bg-blue-800 text-neue focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Connect Wallet</button>
 
-        <CustomModal 
-          show={showWalletOptions}
-          toggleModal={() => setShowWalletOptions(false)}>
-            {connectorsByName.map((connector: any, key: number) => {
-              const clickCallback = () => handleWalletConnect(connector);
-                return (
-              <button key={key} onClick={() => clickCallback()}>
-                {connector.name}
-              </button>
-            );
-          })}
-        </CustomModal>
-
-        <CustomModal
-          show={showDisconnectWalllet}
-          toggleModal={() => setShowDisconnectWallet(false)}>
-          {account}
-            <button onClick={() => handleWalletDisconnect()}>
-              Disconnect
-             </button>
-        </CustomModal>
-    </div>
-  );
+    );
 }
 
 export default ConnectWallet
