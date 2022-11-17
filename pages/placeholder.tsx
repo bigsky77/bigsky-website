@@ -9,7 +9,7 @@ import NavBar from '../components/navbar.tsx'
 const PlaceHolder = () => {
   return(
     <div class="h-screen bg-dark-cyan">
-      <NavBar/>
+      <Header/>
         <div class="font-neue text-6xl text-center pt-60 pb-56">
           <Typewriter
           options={{

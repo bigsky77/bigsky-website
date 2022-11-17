@@ -50,13 +50,13 @@ const ConnectWallet = (props: any) => {
   };
 
   return(
-    <div class="flex justify-content align-items-center"> 
+    <div class="flex justify-content align-items-center font-neue text-burned-gold"> 
       { active ? (
-         <button class="absolute right-5 top-7 border-double border-burned-gold border-4 font-neue text-burned-gold hover:border-indian-red" onClick={() => setShowDisconnectWallet(true)}>
+         <button class="absolute right-5 top-7 border-single border-burned-gold border-2 " onClick={() => setShowDisconnectWallet(true)}>
            {formatAddress(account)} 
         </button> 
     ) : (
-        <button class="absolute right-5 top-7 border-double border-burned-gold border-4 w-auto font-neue text-burned-gold hover:border-indian-red" onClick={() => setShowWalletOptions(true)}>
+        <button class="absolute right-5 top-7 border-single border-burned-gold border-2 w-auto font-neue text-burned-gold hover:border-indian-red hover:text-indian-red" onClick={() => setShowWalletOptions(true)}>
             connect wallet 
         </button>
         )}
