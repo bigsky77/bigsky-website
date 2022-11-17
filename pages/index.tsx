@@ -6,13 +6,27 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import Sphynx from '../public/sphynx.jpg'
 import Photo35 from '../public/photo35.jpg'
+import Typewriter from 'typewriter-effect';
 
 export default function Home() {
   return (
     <div class="h-screen bg-dark-cyan">
       <Header/>
-        <div>
-          <h1 class="text-center font-neue text-9xl text-indian-red absolute left-40 bottom-36">BigSky</h1>
+        <div class="flex justify-center">
+          <div class="absolute top-72">
+            <h1 class="text-center font-neue text-9xl text-indian-red">BigSky</h1>
+              <div class="font-italics pt-8 text-6xl text-burned-gold">
+               <Typewriter onInit={(typewriter) => {
+                  typewriter.typeString('anything is possible...')
+                  .callFunction(() => {
+                    console.log('String typed out!');
+                  })
+                  .pauseFor(2500)
+                  .start();
+               }}
+            />
+           </div>
+          </div>
         </div>
       <Footer/>
     </div>

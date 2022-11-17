@@ -2,7 +2,7 @@ import Sphynx from '../public/sphynx.jpg.png'
 import Image from 'next/image'
 import Link from "next/link"
 import ConnectWallet from '../app/wallet'
-import ChainSelector from '../app/chainselect'
+import ChainSelector from './chainselect'
 
 const NavBar = () => {
       return(
