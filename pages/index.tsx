@@ -13,7 +13,7 @@ export default function Home() {
     <div class="h-screen bg-dark-cyan">
       <Header/>
         <div>
-          <h1 class="text-center font-neue text-9xl text-indian-red absolute left-40 bottom-36">BigSky</h1>
+          <h1 class="text-center font-neue text-9xl text-indian-red absolute left-40 bottom-36">BigSky </h1>
         </div>
     </div>
   )
