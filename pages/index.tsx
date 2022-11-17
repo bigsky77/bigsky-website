@@ -14,6 +14,7 @@ export default function Home() {
         <div>
           <h1 class="text-center font-neue text-9xl text-indian-red absolute left-40 bottom-36">BigSky</h1>
         </div>
+      <Footer/>
     </div>
   )
 }
