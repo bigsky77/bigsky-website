@@ -4,8 +4,8 @@ import { hooks, metaMask } from '../app/connectors/metamask'
 //const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames } = hooks
 
 const WalletModal = () => {
- const ConnectMetamask = () => {
-
+   const ConnectMetamask = () => {
+      console.log("ok")
    } 
   
  return(

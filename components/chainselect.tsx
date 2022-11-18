@@ -1,3 +1,5 @@
+import Script from "next/script";
+
 const ChainSelector = () => {
   return(
     <div>
@@ -19,7 +21,7 @@ const ChainSelector = () => {
                 </li>
               </ul>
           </div>
-            <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
+            <Script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></Script>
     </div>
   );
 }
