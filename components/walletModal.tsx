@@ -1,7 +1,7 @@
 import { useWeb3React } from "@web3-react/core";
 import { hooks, metaMask } from '../app/connectors/metamask'
 
-const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames } = hooks
+//const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames } = hooks
 
 const WalletModal = () => {
  const ConnectMetamask = () => {
