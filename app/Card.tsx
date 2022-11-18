@@ -9,7 +9,6 @@ import { Accounts } from './Accounts'
 import { Chain } from './Chain'
 import { ConnectWithSelect } from './ConnectWithSelect'
 import { Status } from './Status'
-import { formatAddress } from '../lib/helpers'
 
 interface Props {
   connector: MetaMask | WalletConnect | CoinbaseWallet | Network | GnosisSafe
@@ -36,6 +35,7 @@ export function Card({
 }: Props) {
   return (
     <div>
+      <b>{getName(connector)}</b>
       <Status isActivating={isActivating} isActive={isActive} error={error} />
         <Chain chainId={chainId} />
         <div style={{ marginBottom: '1rem' }}>

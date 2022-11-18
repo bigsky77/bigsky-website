@@ -57,31 +57,14 @@ export const CHAINS: { [chainId: number]: BasicChainInformation | ExtendedChainI
       'https://cloudflare-eth.com',
     ].filter((url) => url !== ''),
     name: 'Mainnet',
-  },
-  3: {
-    urls: [process.env.infuraKey ? `https://ropsten.infura.io/v3/${process.env.infuraKey}` : ''].filter(
-      (url) => url !== ''
-    ),
-    name: 'Ropsten',
-  },
-  4: {
-    urls: [process.env.infuraKey ? `https://rinkeby.infura.io/v3/${process.env.infuraKey}` : ''].filter(
-      (url) => url !== ''
-    ),
-    name: 'Rinkeby',
-  },
+  },  
   5: {
     urls: [process.env.infuraKey ? `https://goerli.infura.io/v3/${process.env.infuraKey}` : ''].filter(
       (url) => url !== ''
     ),
     name: 'Görli',
   },
-  42: {
-    urls: [process.env.infuraKey ? `https://kovan.infura.io/v3/${process.env.infuraKey}` : ''].filter(
-      (url) => url !== ''
-    ),
-    name: 'Kovan',
-  },
+ 
   // Optimism
   10: {
     urls: [
@@ -101,6 +84,7 @@ export const CHAINS: { [chainId: number]: BasicChainInformation | ExtendedChainI
     nativeCurrency: ETH,
     blockExplorerUrls: ['https://kovan-optimistic.etherscan.io'],
   },
+  
   // Arbitrum
   42161: {
     urls: [
@@ -120,6 +104,7 @@ export const CHAINS: { [chainId: number]: BasicChainInformation | ExtendedChainI
     nativeCurrency: ETH,
     blockExplorerUrls: ['https://testnet.arbiscan.io'],
   },
+  
   // Polygon
   137: {
     urls: [
@@ -137,19 +122,6 @@ export const CHAINS: { [chainId: number]: BasicChainInformation | ExtendedChainI
     name: 'Polygon Mumbai',
     nativeCurrency: MATIC,
     blockExplorerUrls: ['https://mumbai.polygonscan.com'],
-  },
-  // Celo
-  42220: {
-    urls: ['https://forno.celo.org'],
-    name: 'Celo',
-    nativeCurrency: CELO,
-    blockExplorerUrls: ['https://explorer.celo.org'],
-  },
-  44787: {
-    urls: ['https://alfajores-forno.celo-testnet.org'],
-    name: 'Celo Alfajores',
-    nativeCurrency: CELO,
-    blockExplorerUrls: ['https://alfajores-blockscout.celo-testnet.org'],
   },
 }
 
