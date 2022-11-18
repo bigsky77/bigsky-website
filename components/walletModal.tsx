@@ -1,16 +1,7 @@
-import { useWeb3React } from "@web3-react/core";
 import { useEffect, useState } from 'react'
-import { hooks, metaMask } from '../app/connectors/metamask'
 import { MetaMaskCard } from '../app/connectorCards/MetaMaskCard'
-import type { Web3ReactHooks } from '@web3-react/core'
-
-const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames } = hooks
 
 const WalletModal = () => {
-
-  const connectMetaMask = () => {
-    
-  }
 
  return(
          <div class="text-neue">
@@ -33,8 +24,8 @@ const WalletModal = () => {
                           <p class="text-sm font-normal text-gray-500 dark:text-gray-400">Please connect wallet to continue.</p>
                           <ul class="my-4 space-y-3">
                               <li>
-                                  <a onClick={connectMetaMask} class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-                                     <span class="flex-1 ml-3 whitespace-nowrap">MetaMask</span>
+                                  <a class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
+                                     <span class="flex-1 ml-3 whitespace-nowrap">MetaMaskCard</span>
                                   </a>
                               </li>
                               <li>
