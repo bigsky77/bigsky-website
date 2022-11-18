@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { hooks, metaMask } from '../connectors/metaMask'
+import { coinbaseWallet, hooks } from '../connectors/coinbaseWallet'
 import { Card } from '../Card'
 
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames } = hooks
 
-export default function MetaMaskCard() {
+export default function CoinbaseWalletCard() {
   const chainId = useChainId()
   const accounts = useAccounts()
   const isActivating = useIsActivating()
@@ -18,14 +18,14 @@ export default function MetaMaskCard() {
 
   // attempt to connect eagerly on mount
   useEffect(() => {
-    void metaMask.connectEagerly().catch(() => {
-      console.debug('Failed to connect eagerly to metamask')
+    void coinbaseWallet.connectEagerly().catch(() => {
+      console.debug('Failed to connect eagerly to coinbase wallet')
     })
   }, [])
 
   return (
     <Card
-      connector={metaMask}
+      connector={coinbaseWallet}
       chainId={chainId}
       isActivating={isActivating}
       isActive={isActive}

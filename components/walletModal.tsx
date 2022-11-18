@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { MetaMaskCard } from '../app/connectorCards/MetaMaskCard'
+import MetaMaskCard from '../app/connectorCards/MetaMaskCard'
+import WalletConnectCard from '../app/connectorCards/WalletConnectCard'
+import CoinbaseWalletCard from '../app/connectorCards/CoinbaseWalletCard'
 
 const WalletModal = () => {
-
  return(
          <div class="text-neue">
           <button type="button" data-modal-toggle="crypto-modal" class="text-gray-900 hover:border-burned-gold bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700">
@@ -25,22 +26,17 @@ const WalletModal = () => {
                           <ul class="my-4 space-y-3">
                               <li>
                                   <a class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-                                     <span class="flex-1 ml-3 whitespace-nowrap">MetaMaskCard</span>
+                                     <span class="flex-1 ml-3 whitespace-nowrap"><MetaMaskCard /></span>
                                   </a>
                               </li>
                               <li>
                                   <a href="#" class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-                                     <span class="flex-1 ml-3 whitespace-nowrap">Coinbase Wallet</span>
+                                     <span class="flex-1 ml-3 whitespace-nowrap"><CoinbaseWalletCard /></span>
                                   </a>
                               </li>
                               <li>
                                   <a href="#" class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-                                   <span class="flex-1 ml-3 whitespace-nowrap">MyEtherWallet</span>
-                                  </a>
-                              </li>
-                              <li>
-                                  <a href="#" class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-                                    <span class="flex-1 ml-3 whitespace-nowrap">WalletConnect</span>
+                                    <span class="flex-1 ml-3 whitespace-nowrap"><WalletConnectCard /></span>
                                   </a>
                               </li>
                          </ul>

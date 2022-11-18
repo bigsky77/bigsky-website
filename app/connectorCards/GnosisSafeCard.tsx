@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import { hooks, metaMask } from '../connectors/metaMask'
+import { gnosisSafe, hooks } from '../../connectors/gnosisSafe'
 import { Card } from '../Card'
 
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames } = hooks
 
-export default function MetaMaskCard() {
+export default function GnosisSafeCard() {
   const chainId = useChainId()
   const accounts = useAccounts()
   const isActivating = useIsActivating()
@@ -18,14 +18,14 @@ export default function MetaMaskCard() {
 
   // attempt to connect eagerly on mount
   useEffect(() => {
-    void metaMask.connectEagerly().catch(() => {
-      console.debug('Failed to connect eagerly to metamask')
+    void gnosisSafe.connectEagerly().catch(() => {
+      console.debug('Failed to connect eagerly to gnosis safe')
     })
   }, [])
 
   return (
     <Card
-      connector={metaMask}
+      connector={gnosisSafe}
       chainId={chainId}
       isActivating={isActivating}
       isActive={isActive}
