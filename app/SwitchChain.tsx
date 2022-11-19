@@ -19,7 +19,7 @@ function ChainSelect({
   chainIds: number[]
 }) {
   return (
-    <select
+    <select class="text-white bg-cyan-blue border border-gray-200 text-neue hover:border-burned-gold focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       value={chainId}
       onChange={(event) => {
         switchChain?.(Number(event.target.value))
@@ -36,7 +36,7 @@ function ChainSelect({
   )
 }
 
-export function ConnectWithSelect({
+export function SwitchChain({
   connector,
   chainId,
   isActivating,
@@ -109,7 +109,7 @@ export function ConnectWithSelect({
 
   if (error) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div >
         {!(connector instanceof GnosisSafe) && (
           <ChainSelect
             chainId={desiredChainId}
@@ -118,13 +118,13 @@ export function ConnectWithSelect({
             chainIds={chainIds}
           />
         )}
-        <div style={{ marginBottom: '1rem' }} />
+        <div style={{  }} />
         <button onClick={onClick}>Try Again?</button>
       </div>
     )
   } else if (isActive) {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div >
         {!(connector instanceof GnosisSafe) && (
           <ChainSelect
             chainId={desiredChainId === -1 ? -1 : chainId}
@@ -133,23 +133,12 @@ export function ConnectWithSelect({
             chainIds={chainIds}
           />
         )}
-        <div style={{ marginBottom: '1rem' }} />
-        <button
-          onClick={() => {
-            if (connector?.deactivate) {
-              void connector.deactivate()
-            } else {
-              void connector.resetState()
-            }
-          }}
-        >
-          Disconnect
-        </button>
+        <div/>
       </div>
     )
   } else {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div >
         {!(connector instanceof GnosisSafe) && (
           <ChainSelect
             chainId={desiredChainId}
@@ -158,31 +147,7 @@ export function ConnectWithSelect({
             chainIds={chainIds}
           />
         )}
-        <div style={{ marginBottom: '1rem' }} />
-        <button
-          onClick={
-            isActivating
-              ? undefined
-              : () =>
-                  connector instanceof GnosisSafe
-                    ? void connector
-                        .activate()
-                        .then(() => setError(undefined))
-                        .catch(setError)
-                    : connector instanceof WalletConnect || connector instanceof Network
-                    ? connector
-                        .activate(desiredChainId === -1 ? undefined : desiredChainId)
-                        .then(() => setError(undefined))
-                        .catch(setError)
-                    : connector
-                        .activate(desiredChainId === -1 ? undefined : getAddChainParameters(desiredChainId))
-                        .then(() => setError(undefined))
-                        .catch(setError)
-          }
-          disabled={isActivating}
-        >
-          Connect
-        </button>
+        <div style={{  }} />
       </div>
     )
   }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Script from 'next/script'
 import MetaMaskCard from '../app/connectorCards/MetaMaskCard'
 import WalletConnectCard from '../app/connectorCards/WalletConnectCard'
 import CoinbaseWalletCard from '../app/connectorCards/CoinbaseWalletCard'
@@ -44,6 +45,7 @@ const WalletModal = () => {
                   </div>
               </div>
           </div>
+          <Script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></Script>
       </div>
   )
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { hooks, network } from '../../connectors/network'
-import { Card } from '../Card'
+import { hooks, network } from '../connectors/network'
+import { SwitchChain } from '../SwitchChain'
 
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames } = hooks
 
@@ -24,7 +24,7 @@ export default function NetworkCard() {
   }, [])
 
   return (
-    <Card
+    <SwitchChain
       connector={network}
       chainId={chainId}
       isActivating={isActivating}
