@@ -35,9 +35,7 @@ export function Card({
 }: Props) {
   return (
     <div>
-      <b>{getName(connector)}</b>
       <Status isActivating={isActivating} isActive={isActive} error={error} />
-        <Chain chainId={chainId} />
         <div style={{ marginBottom: '1rem' }}>
           <Accounts accounts={accounts} provider={provider} ENSNames={ENSNames} />
         </div>

@@ -6,7 +6,7 @@ import NetworkCard from '../app/connectorCards/NetworkCard'
 
 const NavBar = () => {
       return(
-      <nav class="bg-white border-burned-gold border-solid border-b px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+      <nav class="bg-gradient-to-r from-purple-700 to-purple900 border-burned-gold border-solid border-b px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
         <div class="container flex flex-wrap items-center justify-between mx-auto">
           <Link href="/" class="flex items-center">
               <Image src={Sphynx} width={100} height={100} class="absolute left-4 pb-2"/>

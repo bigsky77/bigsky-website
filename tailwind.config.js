@@ -16,6 +16,9 @@ module.exports = {
         'burned-gold': '#CD955C',
         'indian-red': '#CD5C5C',
         'purple900': '#1C0337',
+        'soft-white': '#faf9fa',
+        'goldVibrant': '#FEB239',
+        'magentaVibrant': '#FC72FF',
       },
       fontFamily: {
         neue: ("NeueMachine"),
