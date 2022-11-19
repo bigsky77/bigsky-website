@@ -13,8 +13,8 @@ export default function Home() {
     <div class="h-screen bg-dark-cyan">
       <Header/>
         <div class="flex justify-center">
-          <div class="absolute top-72">
-            <h1 class="text-center font-neue text-9xl text-indian-red">BigSky</h1>
+          <div class="absolute top-80">
+            <h1 class="text-center font-neue text-9xl text-magentaVibrant">BigSky</h1>
               <div class="font-italics pt-8 text-6xl text-burned-gold">
                <Typewriter options={{skipAddStyles: true}} onInit={(typewriter) => {
                   typewriter.typeString('anything is possible...')

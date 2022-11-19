@@ -26,8 +26,8 @@ const GameBox = () => {
 
              <box class="animate-pulse-slow border-solid border-burned-gold border-r border-b border-t w-10 h-10"></box> 
                <box class="border-solid
-                           border-t-indian-red 
-                           border-l-indian-red 
+                           border-t-magentaVibrant 
+                           border-l-magentaVibrant 
                            border-r-burned-gold 
                            border-b-burned-gold 
                            border-l-8 
@@ -51,8 +51,8 @@ const GameBox = () => {
                <box class="animate-pulse-slow border-solid border-burned-gold border-l border-r border-b border-t w-10 h-10"></box> 
                <box class="animate-pulse-slow border-solid border-burned-gold border-l border-r border-b border-t w-10 h-10"></box> 
                <box class="border-solid
-                           border-t-indian-red 
-                           border-r-indian-red 
+                           border-t-magentaVibrant 
+                           border-r-magentaVibrant 
                            border-l-burned-gold 
                            border-b-burned-gold 
                            border-r-8 
@@ -249,8 +249,8 @@ const GameBox = () => {
 
              <box class="animate-pulse-slow border-solid border-burned-gold border-r border-b border-t w-10 h-10"></box> 
                <box class="border-solid
-                           border-b-indian-red 
-                           border-l-indian-red 
+                           border-b-magentaVibrant 
+                           border-l-magentaVibrant 
                            border-r-burned-gold 
                            border-t-burned-gold 
                            border-l-8 
@@ -274,8 +274,8 @@ const GameBox = () => {
                <box class="animate-pulse-slow border-solid border-burned-gold border-l border-r border-b border-t w-10 h-10"></box> 
                <box class="animate-pulse-slow border-solid border-burned-gold border-l border-r border-b border-t w-10 h-10"></box> 
                <box class="border-solid
-                           border-b-indian-red 
-                           border-r-indian-red 
+                           border-b-magentaVibrant 
+                           border-r-magentaVibrant 
                            border-l-burned-gold 
                            border-t-burned-gold 
                            border-r-8 
