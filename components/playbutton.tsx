@@ -1,4 +1,4 @@
-import Play from "../app/Play"
+import Play from "../app/game/Play"
 
 const PlayButton = () => {
   return(

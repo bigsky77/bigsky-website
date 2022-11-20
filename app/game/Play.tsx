@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useWeb3React } from '@web3-react/core'
 import type { Web3ReactHooks } from '@web3-react/core'
-import { hooks, metaMask } from './connectors/metaMask'
+import { hooks, metaMask } from '../connectors/metaMask'
 import { Contract } from "@ethersproject/contracts";
 import { Web3Provider } from '@ethersproject/providers'
+import { address } from '../../address.ts'
 
 const { abi } = require('abi/bigsky.json');
-const contractAddress = '0x6EAF69Ee43aF0c294213C8947EA7127cD4FC138b';
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
 const Play = () => {
@@ -14,7 +14,7 @@ const Play = () => {
   const { library } = useWeb3React<Web3Provider>();
 
   async function StartGame() {
-    const bigsky = new Contract(contractAddress, abi, provider.getSigner());
+    const bigsky = new Contract(address, abi, provider.getSigner());
     bigsky.startGame();
   } 
 
