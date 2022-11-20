@@ -27,7 +27,7 @@ export default function Game() {
 
   return(
     <div>
-      <p class="font-neue text-8xl text-magentaVibrant">Coming Soon!</p>
+      <p class="font-neue text-8xl text-magentaVibrant">Coming Soon! </p>
     </div>
   )
 
