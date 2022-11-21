@@ -12,8 +12,8 @@ const { abi } = require('abi/bigsky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
 export default function Game() {  
-  const [positionX, updatePostionX] = useState(0);
-  const [positionY, updatePostionY] = useState(0);
+  const [positionX, updatePositionX] = useState(0);
+  const [positionY, updatePositionY] = useState(0);
  
   async function updateState() {
      const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -29,32 +29,34 @@ export default function Game() {
      useEffect(() => {
        async function fetchPosition() {
         const currentPosition = await loadCurrentPosition();
-        updatePostionX(currentPosition[0]._hex);
-        updatePostionY(currentPosition[1]._hex);
-
-        console.log(currentPosition[0]._hex);
-        console.log(currentPosition[1]._hex);
+        updatePositionX(currentPosition[0].toNumber());
+        updatePositionY(currentPosition[1].toNumber());
      }
        fetchPosition();
        addSmartContractListener();
      }, []);
 
      function addSmartContractListener(){
-      bigsky.on("PlayerMover", (error, data) => {
-        if (error) {
-          console.log('error')
-        } else {
-          console.log(data.returnValues[1]);
-          console.log('hello')
-        }
+      bigsky.on("PlayerMover", (_positionX, _positionY) => {
+          console.log('Player moves to position', _positionX.toNumber())
+          console.log('Player moves to position', _positionY.toNumber())
+
+          updatePositionX(_positionX.toNumber());
+          updatePositionY(_positionY.toNumber());
       });
      }
   }
   updateState();
 
   return(
-    <div>
-      <p class="font-neue text-4xl text-magentaVibrant">{positionX} {positionY}</p>
+    <div class="absolute border border-solid border-indian-red border-2 inset-0 flex justify-center items-center z-10"
+         style = {{top: '40px', left: '40px', height: '485px', width: '750px'}}       
+      >
+      <p class="absolute font-neue text-4xl text-magentaVibrant"
+         style = {{top: positionY * 100 + 'px', left: positionX * 100 + 'px'}}
+      >
+        {positionX} {positionY}
+      </p>
     </div>
   )
 

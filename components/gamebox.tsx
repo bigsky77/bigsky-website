@@ -308,9 +308,7 @@ const GameBox = () => {
              <box class="animate-pulse-slow border-solid border-burned-gold border-l border-t w-10 h-10"></box> 
 
        </div>
-        <div class="absolute inset-0 flex justify-center items-center z-10">
            <Game/>
-        </div>
       </div>
     </div>
   )
