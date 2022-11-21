@@ -20,7 +20,8 @@ export default function Game() {
      const { active, library, account } = useWeb3React<Web3Provider>();
      
      const bigsky = new Contract(address, abi, provider);
-     
+     const allPositions = [];
+
      const loadCurrentPosition = async () => { 
         const position = await bigsky.getPosition();   
         return position;
@@ -31,6 +32,8 @@ export default function Game() {
         const currentPosition = await loadCurrentPosition();
         updatePositionX(currentPosition[0].toNumber());
         updatePositionY(currentPosition[1].toNumber());
+
+        allPositions.push(currentPosition[0].toNumber(), currentPosition[1].toNumber())
      }
        fetchPosition();
        addSmartContractListener();
@@ -43,6 +46,8 @@ export default function Game() {
 
           updatePositionX(_positionX.toNumber());
           updatePositionY(_positionY.toNumber());
+
+          console.log(allPositions)
       });
      }
   }
@@ -53,9 +58,8 @@ export default function Game() {
          style = {{top: '40px', left: '40px', height: '485px', width: '750px'}}       
       >
       <p class="absolute font-neue text-4xl text-magentaVibrant"
-         style = {{top: positionY * 100 + 'px', left: positionX * 100 + 'px'}}
-      >
-        {positionX} {positionY}
+         style = {{top: positionY * 100 + 'px', left: positionX * 100 + 'px'}}>
+        *
       </p>
     </div>
   )
