@@ -1,12 +1,12 @@
 import Play from "../app/game/Play"
 
-const PlayButton = () => {
+const GameBar = () => {
+
   return(
     <div class="flex justify-center pt-6">
-       <Play />
+     <Play/> 
     </div>
   )
 }
 
-export default PlayButton
-
+export default GameBar

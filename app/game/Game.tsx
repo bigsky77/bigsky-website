@@ -6,62 +6,55 @@ import { Web3Provider } from '@ethersproject/providers'
 import {ethers} from 'ethers'
 import { hooks, metaMask } from '../connectors/metaMask'
 import { address } from '../../address.ts'
-import swr from 'srw'
+import Player from './Player'
+import Enemy from './Enemy'
+import Star from './Star'
 
 const { abi } = require('abi/bigsky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
 export default function Game() {  
-  const [positionX, updatePositionX] = useState(0);
-  const [positionY, updatePositionY] = useState(0);
- 
+  const [ship, updateShip] = useState();
+  const [stars, updateStars] = useState();
+  const [enemies, updateEnemies] = useState();
+  const [turn, updateTurn] = useState();
+  
   async function updateState() {
      const provider = new ethers.providers.Web3Provider(window.ethereum);
      const { active, library, account } = useWeb3React<Web3Provider>();
      
      const bigsky = new Contract(address, abi, provider);
-     const allPositions = [];
-
-     const loadCurrentPosition = async () => { 
-        const position = await bigsky.getPosition();   
-        return position;
-     };
 
      useEffect(() => {
        async function fetchPosition() {
-        const currentPosition = await loadCurrentPosition();
-        updatePositionX(currentPosition[0].toNumber());
-        updatePositionY(currentPosition[1].toNumber());
-
-        allPositions.push(currentPosition[0].toNumber(), currentPosition[1].toNumber())
-     }
+           let eventfilter = bigsky.filters.StarLocations()
+           let event = await bigsky.queryFilter(eventfilter)
+           console.log('star array positionX', event[0].args._stars[0].positionX.toNumber());
+           console.log('star array positionY', event[0].args._stars[0].positionY.toNumber());
+           updateStars(event)
+        }
        fetchPosition();
        addSmartContractListener();
      }, []);
 
      function addSmartContractListener(){
-      bigsky.on("PlayerMover", (_positionX, _positionY) => {
-          console.log('Player moves to position', _positionX.toNumber())
-          console.log('Player moves to position', _positionY.toNumber())
-
-          updatePositionX(_positionX.toNumber());
-          updatePositionY(_positionY.toNumber());
-
-          console.log(allPositions)
+      bigsky.on("TurnComplete", (turn, ship, enemy) => {
+          console.log('turn', turn.toNumber());
+          console.log('ship position', ship);
+          console.log('enemy position', enemy);
+  
+          updateTurn(turn.toNumber());
+          updateShip(ship);
+          updateEnemies(enemy);
       });
      }
+
   }
   updateState();
 
   return(
-    <div class="absolute border border-solid border-indian-red border-2 inset-0 flex justify-center items-center z-10"
-         style = {{top: '40px', left: '40px', height: '485px', width: '750px'}}       
-      >
-      <p class="absolute font-neue text-4xl text-magentaVibrant"
-         style = {{top: positionY * 100 + 'px', left: positionX * 100 + 'px'}}>
-        *
-      </p>
+    <div class="absolute inset-0 flex justify-center items-center z-10"
+         style = {{top: '40px', left: '40px', height: '485px', width: '750px'}}>
     </div>
   )
-
 }
