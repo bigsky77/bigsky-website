@@ -19,6 +19,7 @@ module.exports = {
         'soft-white': '#faf9fa',
         'goldVibrant': '#FEB239',
         'magentaVibrant': '#FC72FF',
+        'redVibrant' : '#F14544',
       },
       fontFamily: {
         neue: ("NeueMachine"),
