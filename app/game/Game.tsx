@@ -15,75 +15,70 @@ const { abi } = require('abi/bigsky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
 export default function Game() {  
-    const [ship, updateShip] = useState([]);
-    const [stars, updateStars] = useState([]);
-    const [enemies, updateEnemies] = useState([]);
-    const [turn, updateTurn] = useState([]);
-    const [turnData, updateTurnData] = useState();
+  const [stars, updateStars] = useState(0);
+  const [ship, updateShip] = useState(0);
+  const [enemies, updateEnemies] = useState(0);
+  const [turn, updateTurn] = useState(0);
   
-    async function updateState() {
+  useEffect(() => {
+        const intervalId = setInterval(() => {
+          if(turn > 0){
+              updateTurn(turn => turn - 1);
+            }else {
+              updateTurn(turn => 9);
+              }
+        }, 1)
+        return () => clearInterval(intervalId);
+    }, [])
+
+  async function getContractData() {
      const provider = new ethers.providers.Web3Provider(window.ethereum);
-     const { active, library, account } = useWeb3React<Web3Provider>();
-     
+     const { active, library, account } = useWeb3React<Web3Provider>();   
      const bigsky = new Contract(address, abi, provider);
 
-     useEffect(() => {
-       async function fetchStars() {
-           let eventfilter = bigsky.filters.StarLocations()
-           let event = await bigsky.queryFilter(eventfilter)
-           console.log('star array positionX', event[0].args._stars[0].positionX.toNumber());
-           console.log('star array positionY', event[0].args._stars[0].positionY.toNumber());
-           
-           const arr = [] 
-           
-           for (let i = 0; i < 16; i++){
-                  let x = event[0].args._stars[i].positionX.toNumber();
-                  let y = event[0].args._stars[i].positionY.toNumber();
-                  arr.push(x, y)
+    async function fetchStars() {
+             let eventfilter = bigsky.filters.StarLocations()
+             let event = await bigsky.queryFilter(eventfilter)
+             const arr = [] 
+             for (let i = 0; i < 16; i++){
+                let x = event[0].args._stars[i].positionX.toNumber();
+                let y = event[0].args._stars[i].positionY.toNumber();
+                arr.push(x, y)
              }
-           updateStars(arr);
-          }
-       
-      async function fetchTurnData() {
+             updateStars(arr);
+      }
+    
+    async function fetchTurnUpdate() {
           let eventfilter = bigsky.filters.TurnComplete();
-          let turn = await bigsky.queryFilter(eventfilter);
-
-          const turnArr = [];
+          let turnData = await bigsky.queryFilter(eventfilter);
+          
           const shipArr = [];
           const enemyArr = [];
-
-          for (let j = 0; j < 10; j++){
-                let shipX = turn[j].args.ship.positionX.toNumber();
-                let shipY = turn[j].args.ship.positionY.toNumber();
-                  shipArr.push(shipX, shipY)
+          
+          let shipX = turnData[turn].args.ship.positionX.toNumber();
+          let shipY = turnData[turn].args.ship.positionY.toNumber();
+              shipArr.push(shipX, shipY)
                 
-                let turns =  turn[j].args._turn.toNumber();
-                  turnArr.push(turns)
+          for(let x = 0; x < 3; x++){
+            let enemyX = turnData[turn].args._enemies[x].positionX.toNumber();
+            let enemyY = turnData[turn].args._enemies[x].positionY.toNumber();
+              enemyArr.push(enemyX, enemyY)
+          }
+          updateShip(shipArr);
+          updateEnemies(enemyArr);
+    }
 
-              for(let x = 0; x < 3; x++){
-                let enemyX = turn[j].args._enemies[x].positionX.toNumber();
-                let enemyY = turn[j].args._enemies[x].positionY.toNumber();
-                  enemyArr.push(enemyX, enemyY)
-                }
-            }
-
-            updateTurnData(turn[0])
-            updateShip(shipArr)
-            updateTurn(turnArr)
-            updateEnemies(enemyArr)
-        }
-
-       fetchTurnData();
-       fetchStars();
-     }, []);
+    fetchStars();
+    fetchTurnUpdate();
   }
-  updateState();
-
+  getContractData();
+  
+    
   return(
     <div>
       <GameBar />
       <GameBox stars={stars} ship={ship} enemies={enemies} />  
-      <ScoreBar turn={turn[0]} />
+      <ScoreBar turn={turn} />
     </div>
   )
 }
