@@ -18,16 +18,12 @@ export default function Game() {
   const [stars, updateStars] = useState(0);
   const [ship, updateShip] = useState(0);
   const [enemies, updateEnemies] = useState(0);
-  const [turn, updateTurn] = useState(0);
+  const [turn, updateTurn] = useState(8);
   
   useEffect(() => {
         const intervalId = setInterval(() => {
-          if(turn > 0){
-              updateTurn(turn => turn - 1);
-            }else {
-              updateTurn(turn => 9);
-              }
-        }, 1)
+
+        }, 1000)
         return () => clearInterval(intervalId);
     }, [])
 
@@ -39,6 +35,7 @@ export default function Game() {
     async function fetchStars() {
              let eventfilter = bigsky.filters.StarLocations()
              let event = await bigsky.queryFilter(eventfilter)
+
              const arr = [] 
              for (let i = 0; i < 16; i++){
                 let x = event[0].args._stars[i].positionX.toNumber();
@@ -47,7 +44,7 @@ export default function Game() {
              }
              updateStars(arr);
       }
-    
+
     async function fetchTurnUpdate() {
           let eventfilter = bigsky.filters.TurnComplete();
           let turnData = await bigsky.queryFilter(eventfilter);
@@ -59,11 +56,12 @@ export default function Game() {
           let shipY = turnData[turn].args.ship.positionY.toNumber();
               shipArr.push(shipX, shipY)
                 
-          for(let x = 0; x < 3; x++){
-            let enemyX = turnData[turn].args._enemies[x].positionX.toNumber();
-            let enemyY = turnData[turn].args._enemies[x].positionY.toNumber();
+          for(let x = 0; x < 2; x++){
+            let enemyX = turnData[turn].args.enemies[x].positionX.toNumber();
+            let enemyY = turnData[turn].args.enemies[x].positionY.toNumber();
               enemyArr.push(enemyX, enemyY)
           }
+
           updateShip(shipArr);
           updateEnemies(enemyArr);
     }
@@ -76,9 +74,9 @@ export default function Game() {
     
   return(
     <div>
-      <GameBar />
+      <GameBar updateTurn={updateTurn} turn={turn} />
       <GameBox stars={stars} ship={ship} enemies={enemies} />  
-      <ScoreBar turn={turn} />
+      <ScoreBar turn={turn} score={100} />
     </div>
   )
 }
