@@ -21,7 +21,7 @@ export default function Game() {
   const [turn, updateTurn] = useState(8);
   const [score, updateScore] = useState(0);
 
-  const [turnData, updateTurnData] = useState();
+  const [turnData, updateTurnData] = useState([]);
   
   useEffect(() => {
         const intervalId = setInterval(() => {
@@ -52,11 +52,10 @@ export default function Game() {
           let eventfilter = bigsky.filters.TurnComplete();
           let turnData = await bigsky.queryFilter(eventfilter);
           
-          updateTurnData(turnData);
-
           const shipArr = [];
           const enemyArr = [];
           
+
           let shipX = turnData[turn].args.ship.positionX.toNumber();
           let shipY = turnData[turn].args.ship.positionY.toNumber();
               shipArr.push(shipX, shipY)
@@ -66,7 +65,6 @@ export default function Game() {
             let enemyY = turnData[turn].args.enemies[x].positionY.toNumber();
               enemyArr.push(enemyX, enemyY)
           }
-
           updateShip(shipArr);
           updateEnemies(enemyArr);
     }
@@ -75,7 +73,8 @@ export default function Game() {
     fetchTurnUpdate();
   }
   getContractData();
-    
+
+
   return(
     <div>
       <GameBar updateTurn={updateTurn} turn={turn} />
