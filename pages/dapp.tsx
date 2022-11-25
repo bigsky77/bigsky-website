@@ -6,6 +6,7 @@ import NavBar from '../components/navbar'
 import Game from '../app/game/Game'
 import RegisterShip from '../app/game/RegisterShip'
 import { useState } from 'react';
+import Grid from '../components/grid'
 
 const Dapp = () => {
   const [isRegister, updateRegister] = useState(false); 
@@ -13,11 +14,14 @@ const Dapp = () => {
   return(
     <div class="h-screen bg-dark-cyan">
       <NavBar/>
-        { isRegister ? (
-          <Game/>
-        ) : (
-          <RegisterShip isRegister={isRegister} updateRegister={updateRegister}/>
-        )}
+        <div class="flex flex-grow justify-center">
+           { isRegister ? (
+             <Game/>
+           ) : (
+             <RegisterShip isRegister={isRegister} updateRegister={updateRegister}/>
+           )}
+         <Grid/>
+        </div>
       <Footer/>
     </div>
   )

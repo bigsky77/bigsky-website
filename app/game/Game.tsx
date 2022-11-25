@@ -37,6 +37,9 @@ export default function Game({contract} :props) {
           const shipArr = [];
           const enemyArr = [];
           
+          let newScore = turnData[turn].args.playerScore.toNumber();
+            updateScore(newScore);
+
           let shipX = turnData[turn].args.ship.positionX.toNumber();
           let shipY = turnData[turn].args.ship.positionY.toNumber();
              shipArr.push(shipX, shipY)
@@ -52,7 +55,7 @@ export default function Game({contract} :props) {
             let enemyY = turnData[turn].args.enemies[x].positionY.toNumber();
               enemyArr.push(enemyX, enemyY)
           }
-
+          
           updateStars(starsArr);
           updateShip(shipArr);
           updateEnemies(enemyArr);

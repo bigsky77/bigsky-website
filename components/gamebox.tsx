@@ -11,7 +11,6 @@ const GameBox = ({stars, enemies, ship}: props) => {
           <Sprites stars={stars} enemies={enemies} ship={ship} /> 
         </div>
       </div>
-      <Grid /> 
     </div>
   )
 }
