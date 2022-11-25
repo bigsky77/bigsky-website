@@ -20,7 +20,7 @@ const RegisterShip = ({updateRegister}: props) => {
 
      const bigsky = new Contract(address, abi, provider.getSigner());
      const shipAddress = event.target.address.value;
-     let res = await bigsky.registerPlayer(shipAddress);
+     let res = await bigsky.launchShip(shipAddress);
      
      console.log('ship address', res);
      updateRegister(true);
