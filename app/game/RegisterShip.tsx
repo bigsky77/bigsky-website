@@ -11,17 +11,18 @@ import { address } from '../../address.ts'
 const { abi } = require('abi/bigsky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
-const RegisterShip = (props) => {
+const RegisterShip = ({updateRegister}: props) => {
+ const provider = useProvider();
+ const { library } = useWeb3React<Web3Provider>();
 
   const handleSubmit = async (event) => {
-     const provider = new ethers.providers.Web3Provider(window.ethereum);
-     const { active, library, account } = useWeb3React<Web3Provider>();   
-     const bigsky = new Contract(address, abi, provider.getSigner());
+     event.preventDefault();
 
-     const address = event.target.address.value;
-     const isRegister = await bigsky.registerPlayer(address); 
+     const bigsky = new Contract(address, abi, provider.getSigner());
+     const shipAddress = event.target.address.value;
+     bigsky.registerPlayer(shipAddress);
      
-     updateRegister(isRegister);
+     updateRegister(true);
  }
 
   return(

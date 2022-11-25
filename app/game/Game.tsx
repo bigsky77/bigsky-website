@@ -18,7 +18,7 @@ export default function Game({contract} :props) {
   const [stars, updateStars] = useState(0);
   const [ship, updateShip] = useState(0);
   const [enemies, updateEnemies] = useState(0);
-  const [turn, updateTurn] = useState(8);
+  const [turn, updateTurn] = useState(9);
   const [score, updateScore] = useState(0);
   
   const [turnData, updateTurnData] = useState([0]);
@@ -29,9 +29,9 @@ export default function Game({contract} :props) {
      const bigsky = new Contract(address, abi, provider);
 
     async function fetchTurnUpdate() {
-          let eventfilter = bigsky.filters.TurnComplete();
-          let eventData = await bigsky.queryFilter(eventfilter);
-            updateTurnData(eventData);
+         let eventfilter = bigsky.filters.TurnComplete();
+         let eventData = await bigsky.queryFilter(eventfilter);
+           updateTurnData(eventData);
 
           const starsArr = [];
           const shipArr = [];
@@ -39,7 +39,7 @@ export default function Game({contract} :props) {
           
           let shipX = turnData[turn].args.ship.positionX.toNumber();
           let shipY = turnData[turn].args.ship.positionY.toNumber();
-              shipArr.push(shipX, shipY)
+             shipArr.push(shipX, shipY)
           
           for (let i = 0; i < 16; i++){
             let x = turnData[turn].args.allStars[i].positionX.toNumber();
