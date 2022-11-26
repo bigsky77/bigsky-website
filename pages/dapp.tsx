@@ -9,7 +9,7 @@ import { useState } from 'react';
 import Grid from '../components/grid'
 
 const Dapp = () => {
-  const [isRegister, updateRegister] = useState(true); 
+  const [isRegister, updateRegister] = useState(false); 
 
   return(
     <div class="h-screen bg-dark-cyan">

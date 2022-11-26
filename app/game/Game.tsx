@@ -18,7 +18,7 @@ export default function Game({contract} :props) {
   const [stars, updateStars] = useState(0);
   const [ship, updateShip] = useState(0);
   const [enemies, updateEnemies] = useState(0);
-  const [turn, updateTurn] = useState(9);
+  const [turn, updateTurn] = useState(0);
   const [score, updateScore] = useState(0);
   
   const [turnData, updateTurnData] = useState([0]);
@@ -45,10 +45,12 @@ export default function Game({contract} :props) {
              shipArr.push(shipX, shipY)
           
           for (let i = 0; i < 16; i++){
-            let x = turnData[turn].args.allStars[i].positionX.toNumber();
-            let y = turnData[turn].args.allStars[i].positionY.toNumber();
-              starsArr.push(x, y)
-             }
+            if(turnData[turn].args.allStars[i].isActive == true){
+              let x = turnData[turn].args.allStars[i].positionX.toNumber();
+              let y = turnData[turn].args.allStars[i].positionY.toNumber();
+                starsArr.push(x, y)
+              }
+            }
   
           for(let x = 0; x < 2; x++){
             let enemyX = turnData[turn].args.enemies[x].positionX.toNumber();
