@@ -1,5 +1,7 @@
-export const address = '0xC26F6dd7D416D3c428a93F4599c09eB8D79B56f8';
+import { transactions } from '../bigsky-contracts/broadcast/DeployBigSky.s.sol/31337/run-latest.json';
 
+export const address = transactions[0].contractAddress;
+//export const address = '0x5FbDB2315678afecb367f032d93F642f64180aa3';
 //export const address = '0xeAF61344D05437fbF8be51aC5764E7346b051C46';
 //export const address = '0x19E9de2787E519dE0251732b464E18d3683e00a9'; 
 // last before api chang'0x28731a03dabf3F9a3F6ceF4c9Eb13E366daF8f14'
