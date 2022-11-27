@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Script from 'next/script'
 import MetaMaskCard from '../app/connectorCards/MetaMaskCard'
 import WalletConnectCard from '../app/connectorCards/WalletConnectCard'
-import CoinbaseWalletCard from '../app/connectorCards/CoinbaseWalletCard'
 import { Accounts } from '../app/Accounts'
 import { hooks, metaMask } from '../app/connectors/metamask'
 import { Status } from '../app/Status'
@@ -61,12 +60,7 @@ const WalletModal = () => {
                                      <span class="flex-1 ml-3 whitespace-nowrap"><MetaMaskCard /></span>
                                   </a>
                               </li>
-                              <li>
-                                  <a href="#" class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
-                                     <span class="flex-1 ml-3 whitespace-nowrap"><CoinbaseWalletCard /></span>
-                                  </a>
-                              </li>
-                              <li>
+                             <li>
                                   <a href="#" class="flex items-center p-3 text-base font-bold text-gray-900 bg-gray-50 rounded-lg hover:bg-gray-100 group hover:shadow dark:bg-gray-600 dark:hover:bg-gray-500 dark:text-white">
                                     <span class="flex-1 ml-3 whitespace-nowrap"><WalletConnectCard /></span>
                                   </a>

@@ -16,56 +16,51 @@ const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useE
 export default function Game({contractData} :props) {  
   const [stars, updateStars] = useState(0);
   const [ship, updateShip] = useState(0);
-  const [enemies, updateEnemies] = useState(0);
   const [turn, updateTurn] = useState(1);
   const [score, updateScore] = useState(0);
   const [eventData, updateEventData] = useState(null);
-  const [highScore, updateHighScore] = useState() 
+  const [balance, updateBalance] = useState(100);
 
   async function fetchTurnUpdate() {
      let eventfilter = contractData.filters.TurnComplete();
      let eventData = await contractData.queryFilter(eventfilter);
-     
      updateEventData(eventData);
 
      const starsArr = [];
      const shipArr = [];
-     const enemyArr = [];
      
      let newScore = eventData[turn].args.playerScore.toNumber();
       console.log('score', newScore);
       updateScore(newScore);
 
-     let shipX = eventData[turn].args.ship.positionX.toNumber();
-     let shipY = eventData[turn].args.ship.positionY.toNumber();
-       shipArr.push(shipY, shipX)
+     let newBalance = eventData[turn].args.ships.balance.toNumber();
+      console.log('balance', newBalance);
+      updateBalance(newBalance);
+
+     let shipX = eventData[turn].args.ships.positionX.toNumber();
+     let shipY = eventData[turn].args.ships.positionY.toNumber();
+       shipArr.push(shipX, shipY)
      
      for (let i = 0; i < 16; i++){
         let x = eventData[turn].args.allStars[i].positionX.toNumber();
         let y = eventData[turn].args.allStars[i].positionY.toNumber();
           if(eventData[turn].args.allStars[i].isActive == true){
-            starsArr.push(y, x)
+            starsArr.push(x, y)
           } 
       }
-  
-     for(let x = 0; x < 2; x++){
-      let enemyX = eventData[turn].args.enemies[x].positionX.toNumber();
-      let enemyY = eventData[turn].args.enemies[x].positionY.toNumber();
-        enemyArr.push(enemyY, enemyX)
-     }
-
+      
      updateStars(starsArr);
      updateShip(shipArr);
-     updateEnemies(enemyArr);
   }
+
   fetchTurnUpdate();
 
   if (eventData){
       return(
         <div>
           <GameBar updateTurn={updateTurn} turn={turn} />
-          <GameBox stars={stars} ship={ship} enemies={enemies} />  
-          <ScoreBar turn={turn} score={score} highScore={highScore}/>
+          <GameBox stars={stars} ship={ship} />  
+          <ScoreBar turn={turn} score={score} balance={balance} />
         </div>
       )
     } else {

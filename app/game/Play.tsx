@@ -7,7 +7,7 @@ const Play = (props) => {
   useEffect(() => {
     if(play == true){
         const intervalId = setInterval(() => {
-          if(turnCounter >= 30){
+          if(turnCounter >= 29){
               turnCounter = 1;
               props.updateTurn(1);
             } else {

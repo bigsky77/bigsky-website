@@ -8,7 +8,7 @@ const Footer = () => {
           </span>
           <ul class="flex flex-wrap items-center mt-3 text-sm text-soft-white dark:text-gray-400 sm:mt-0">
               <li>
-                  <a href="#" class="mr-4 hover:underline md:mr-6 ">docs</a>
+                  <a href="https://github.com/bigsky77/bigsky-contracts" class="mr-4 hover:underline md:mr-6 ">docs</a>
               </li>
               <li>
                   <a href="https://mobile.twitter.com/BigSky_7" class="mr-4 hover:underline md:mr-6">social</a>
