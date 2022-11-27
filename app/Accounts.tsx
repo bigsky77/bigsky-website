@@ -44,14 +44,12 @@ export function Accounts({
 
   return (
     <div>
-      Account:{' '}
       <b>
         {accounts.length === 0
           ? 'None'
           : accounts?.map((account, i) => (
               <ul key={account} style={{ margin: 0, overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {ENSNames?.[i] ?? formatAddress(account)}
-                {balances?.[i] ? ` (Ξ${formatEther(balances[i])})` : null}
               </ul>
             ))}
       </b>

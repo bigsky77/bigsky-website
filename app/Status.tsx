@@ -19,7 +19,7 @@ export function Status({
       ) : isActivating ? (
         <>🟡 Connecting</>
       ) : isActive ? (
-        <>🟢 Connected</>
+        <>🟢</>
       ) : (
         <>⚪️ Disconnected</>
       )}
