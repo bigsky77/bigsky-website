@@ -1,7 +1,7 @@
 const Sprites = ({ship, stars, enemies}: props) => {
 
   const starRows = [];
-    for (let i = 0; i < 16; i++){
+    for (let i = 0; i < stars.length; i++){
         starRows.push(<p class="absolute font-neue text-3xl text-magentaVibrant"
               style = {{top: stars[i] * 32.466 + 'px', left: stars[i + 1] * 44.94 + 'px'}}
            >⭐️ <p class="text-sm text-indian-red">({stars[i + 1]},{stars[i]})</p></p>)
@@ -22,8 +22,8 @@ const Sprites = ({ship, stars, enemies}: props) => {
       }
 
   return(
-    <div class="absolute inset-0 flex justify-center items-center z-10"
-         style = {{top: '10px', left: '40px', height: '485px', width: '750px'}}>
+    <div class="absolute border-solid border-4 border-indian-red overflow-hidden inset-0 flex justify-center items-center z-10"
+         style = {{top: '20px', left: '40px', height: '480px', width: '750px'}}>
         <p>{starRows}</p>
         <p>{enemyRows}</p>
         <p>{shipRows}</p>

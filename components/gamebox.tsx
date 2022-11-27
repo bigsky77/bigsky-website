@@ -6,8 +6,8 @@ import Sprites from './sprites'
 const GameBox = ({stars, enemies, ship}: props) => {
   return(
     <div>
-      <div class="absolute left-24">
-        <div class="absolute top-20 left-80 z-10">
+      <div class="absolute left-28">
+        <div class="absolute top-24 left-80 z-10">
           <Sprites stars={stars} enemies={enemies} ship={ship} /> 
         </div>
       </div>
