@@ -17,7 +17,7 @@ export default function Game({contractData, updateRegister} :props) {
   const [stars, updateStars] = useState(0);
   const [ship, updateShip] = useState(0);
   const [turn, updateTurn] = useState(1);
-  const [score, updateScore] = useState(0);
+  const [score, updateScore] = useState();
   const [eventData, updateEventData] = useState(null);
 
   async function fetchTurnUpdate() {
@@ -53,7 +53,13 @@ export default function Game({contractData, updateRegister} :props) {
       return(
         <div>
           <GameBar updateTurn={updateTurn} turn={turn} />
-          <GameBox stars={stars} ship={ship} turn={turn} score={score} updateRegister={updateRegister} />  
+          <GameBox 
+            stars={stars} 
+            ship={ship} 
+            turn={turn} 
+            score={score} 
+            updateRegister={updateRegister} 
+            contractData={contractData}/>  
           <ScoreBar turn={turn} score={score} balance={100} />
         </div>
       )

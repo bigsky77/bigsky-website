@@ -1,3 +1,5 @@
+import  SmoothRender  from  'react-smooth-render';
+
 const Sprites = ({ship, stars }: props) => {
 
   const starRows = [];
@@ -18,7 +20,9 @@ const Sprites = ({ship, stars }: props) => {
     <div class="absolute z-10"
          style = {{top: '60px', left: '67px', height: '430px', width: '695px'}}>
         <p>{starRows}</p>
-        <p>{shipRows}</p>
+        <SmoothRender timing={600}>
+          <p>{shipRows}</p>
+        </SmoothRender>
     </div>
   )
 }

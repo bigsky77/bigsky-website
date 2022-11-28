@@ -2,8 +2,9 @@ import Grid from './grid'
 import Player from './sprites/player'
 import Enemies from './sprites/enemies'
 import Sprites from './sprites'
+import React, { useState } from 'react';
 
-const GameBox = ({score, stars, enemies, ship, turn, updateRegister}: props) => {
+const GameBox = ({contractData, score, stars, enemies, ship, turn, updateRegister}: props) => {
   return(
     <div>
       <div class="absolute left-28">
@@ -11,7 +12,7 @@ const GameBox = ({score, stars, enemies, ship, turn, updateRegister}: props) => 
           {turn < 30 ? 
             <Sprites stars={stars} enemies={enemies} ship={ship} /> 
           :
-            <GameOver score={score} updateRegister={updateRegister}/>
+            <GameOver updateRegister={updateRegister} contractData={contractData}/>
           }
         </div>
       </div>
@@ -21,22 +22,38 @@ const GameBox = ({score, stars, enemies, ship, turn, updateRegister}: props) => 
 
 export default GameBox 
 
-const GameOver = ({score, updateRegister}: props) => {
-  
+const GameOver = ({contractData, updateRegister}: props) => {
+  const [endGame, updateEndGame] = useState({score: '0', highscore: '', starsCaptured: '', gamesPlayed: ''});
+
+  async function fetchEndGameData() {
+    let eventfilter = contractData.filters.GameOver();
+    let eventData = await contractData.queryFilter(eventfilter);
+    console.log('event data', eventData);
+
+    let finalScore = eventData.args.playerScore.toNumber();
+    let highscore = eventData.args.highScore.toNumber();
+    let starsCaptured = eventData.args.starsCaptured.toNumber();
+    let gamesPlayed = eventData.args.gamesPlayed.toNumber();
+    
+    updateEndGame(finalScore, highscore, starsCaptured, gamesPlayed);
+    }
+  fetchEndGameData();
+
   async function newGame(){
       updateRegister(false);
     }
 
   return(
     <div>
-      <div class="absolute top-36 left-80 w-60 h-60 bg-dark-cyan border border-indian-red border-4 z-10">
+      <div class="absolute top-36 left-80 w-60 h-60 bg-dark-cyan border border-magentaVibrant rounded-md border-2 z-10">
         <p class="flex justify-center pt-5 font-neue">Game Over!</p>
-        <p class="flex justify-left pt-5 pl-2 font-neue">Player Score: {score} </p>
-        <p class="flex justify-left pt-5 pl-2 font-neue">High Score: </p>
-        <p class="flex justify-left pt-5 pl-2 font-neue">Stars Captured: </p>
-        <p class="flex justify-center">
-          <button onClick={newGame} class="flex justify-center mt-2 pl-2 pr-2 bg-grey-700 font-neue rounded-lg">
-            Play Again
+        <p class="flex justify-left pt-2 pl-2 font-neue">Player Score: {endGame.score} </p>
+        <p class="flex justify-left pt-5 pl-2 font-neue">High Score: {endGame.highscore} </p>
+        <p class="flex justify-left pt-5 pl-2 font-neue">Stars Captured: {endGame.starsCaptured} </p>
+        <p class="flex justify-left pt-5 pl-2 font-neue">Games Played: {endGame.gamesPlayed} </p>
+        <p class="flex justify-center pt-2">
+          <button onClick={newGame} class="flex justify-center mt-2 pl-2 pt-1 pr-2 bg-magentaVibrant font-neue rounded-lg">
+            Play Again 🚀
           </button>
         </p>
       </div>
