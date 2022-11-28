@@ -19,7 +19,7 @@ const { abi } = require('../../bigsky-contracts/out/BigSky.sol/BigSky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
 const Dapp = () => {
-  const [isRegister, updateRegister] = useState(true); 
+  const [isRegister, updateRegister] = useState(false); 
   const [contractData, setContractData] = useState();
   
   const { active, library, account } = useWeb3React<Web3Provider>();   
@@ -39,7 +39,7 @@ const Dapp = () => {
       <NavBar/>
         <div class="flex flex-grow justify-center">
            { contractData && isRegister ? (
-             <Game contractData={contractData}/>
+             <Game contractData={contractData} updateRegister={updateRegister}/>
            ) : (
              <RegisterShip isRegister={isRegister} updateRegister={updateRegister}/>
            )}

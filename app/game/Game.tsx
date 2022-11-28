@@ -13,13 +13,12 @@ import ScoreBar from '../../components/scorebar'
 const { abi } = require('../../../bigsky-contracts/out/BigSky.sol/BigSky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
-export default function Game({contractData} :props) {  
+export default function Game({contractData, updateRegister} :props) {  
   const [stars, updateStars] = useState(0);
   const [ship, updateShip] = useState(0);
   const [turn, updateTurn] = useState(1);
   const [score, updateScore] = useState(0);
   const [eventData, updateEventData] = useState(null);
-  const [balance, updateBalance] = useState(100);
 
   async function fetchTurnUpdate() {
      let eventfilter = contractData.filters.TurnComplete();
@@ -30,12 +29,7 @@ export default function Game({contractData} :props) {
      const shipArr = [];
      
      let newScore = eventData[turn].args.playerScore.toNumber();
-      console.log('score', newScore);
-      updateScore(newScore);
-
-     let newBalance = eventData[turn].args.ships.balance.toNumber();
-      console.log('balance', newBalance);
-      updateBalance(newBalance);
+     console.log('score', newScore);
 
      let shipX = eventData[turn].args.ships.positionX.toNumber();
      let shipY = eventData[turn].args.ships.positionY.toNumber();
@@ -49,18 +43,18 @@ export default function Game({contractData} :props) {
           } 
       }
       
+     updateScore(newScore);
      updateStars(starsArr);
      updateShip(shipArr);
   }
-
   fetchTurnUpdate();
 
   if (eventData){
       return(
         <div>
           <GameBar updateTurn={updateTurn} turn={turn} />
-          <GameBox stars={stars} ship={ship} />  
-          <ScoreBar turn={turn} score={score} balance={balance} />
+          <GameBox stars={stars} ship={ship} turn={turn} score={score} updateRegister={updateRegister} />  
+          <ScoreBar turn={turn} score={score} balance={100} />
         </div>
       )
     } else {

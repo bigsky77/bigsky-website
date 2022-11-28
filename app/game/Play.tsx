@@ -3,27 +3,26 @@ import React, { useState, useEffect } from 'react';
 const Play = (props) => {
   const [play, updatePlay] = useState(true);
   var turnCounter = 1;
-
+  
   useEffect(() => {
     if(play == true){
         const intervalId = setInterval(() => {
-          if(turnCounter >= 29){
-              turnCounter = 1;
-              props.updateTurn(1);
-            } else {
-              turnCounter++;
+          if(turnCounter < 30){
+              turnCounter += 1;
               props.updateTurn(turnCounter);
-              }
-      }, 500)
+            } else {
+              updatePlay(false);
+              props.updateTurn(30);
+              } 
+      }, 100)
         return () => clearInterval(intervalId);
-      } else {
-          null
-        }
+      }
     }, [])
 
   async function startPlay() {
+      turnCounter = 1;
       updatePlay(true);
-      props.updateTurn(props.turn)
+      props.updateTurn(1)
       console.log('play state', play)
   }
 
@@ -34,7 +33,8 @@ const Play = (props) => {
     }
 
   async function reset() {
-      props.updateTurn(1);
+      turnCounter = 1;
+      props.updateTurn(turnCounter);
       console.log('turn', props.turn)
     }
 
