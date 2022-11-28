@@ -18,6 +18,7 @@ export default function Game({contractData, updateRegister} :props) {
   const [ship, updateShip] = useState(0);
   const [turn, updateTurn] = useState(1);
   const [score, updateScore] = useState();
+  const [balance, updateBalance] = useState(100);
   const [eventData, updateEventData] = useState(null);
 
   async function fetchTurnUpdate() {
@@ -27,9 +28,12 @@ export default function Game({contractData, updateRegister} :props) {
 
      const starsArr = [];
      const shipArr = [];
-     
+      
      let newScore = eventData[turn].args.playerScore.toNumber();
      console.log('score', newScore);
+
+     let newBalance = eventData[turn].args.ships.balance.toNumber();
+     console.log('balance', newBalance);
 
      let shipX = eventData[turn].args.ships.positionX.toNumber();
      let shipY = eventData[turn].args.ships.positionY.toNumber();
@@ -43,6 +47,7 @@ export default function Game({contractData, updateRegister} :props) {
           } 
       }
       
+     updateBalance(newBalance);
      updateScore(newScore);
      updateStars(starsArr);
      updateShip(shipArr);
@@ -60,7 +65,7 @@ export default function Game({contractData, updateRegister} :props) {
             score={score} 
             updateRegister={updateRegister} 
             contractData={contractData}/>  
-          <ScoreBar turn={turn} score={score} balance={100} />
+          <ScoreBar turn={turn} score={score} balance={balance} />
         </div>
       )
     } else {

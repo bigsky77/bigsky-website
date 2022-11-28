@@ -8,23 +8,26 @@ const Play = (props) => {
     if(play == true){
         const intervalId = setInterval(() => {
           if(turnCounter < 30){
-              turnCounter += 1;
+              turnCounter++;
               props.updateTurn(turnCounter);
+              console.log("turn", props.turn);
             } else {
-              turnCounter = 30;
-              props.updateTurn(30);
               updatePlay(false);
+              console.log('update play')
               } 
-      }, 100)
+      }, 500)
         return () => clearInterval(intervalId);
       }
     }, [])
 
   async function startPlay() {
       turnCounter = 1;
+      
       updatePlay(true);
+      console.log('update play')
+
       props.updateTurn(turnCounter)
-      console.log('play state', play)
+      console.log('turn', props.turn)
   }
 
   async function pause() {

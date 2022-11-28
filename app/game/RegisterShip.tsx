@@ -27,6 +27,7 @@ const RegisterShip = ({updateRegister}: props) => {
      
      await result.wait();
      updateLoading(false);
+
      updateRegister(true);
  }
 
