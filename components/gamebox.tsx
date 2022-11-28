@@ -45,7 +45,7 @@ const GameOver = ({contractData, updateRegister}: props) => {
 
   return(
     <div>
-      <div class="absolute top-36 left-80 w-60 h-75 bg-dark-cyan border border-magentaVibrant rounded-md border-2 z-10">
+      <div class="absolute top-36 left-80 w-60 h-75 bg-dark-cyan border border-double border-magentaVibrant rounded-md border-4 z-10">
         <p class="flex justify-center pt-5 font-neue">Game Over!</p>
         <p class="flex justify-left pt-2 pl-2 font-neue">Player Score: {endGame.score} </p>
         <p class="flex justify-left pt-5 pl-2 font-neue">High Score: {endGame.highscore} </p>
