@@ -1,21 +1,56 @@
 import Grid from './grid'
-import Player from './sprites/player'
-import Enemies from './sprites/enemies'
-import Sprites from './sprites'
-import React, { useState } from 'react';
+import Sprites from '../../components/sprites'
+import React, { useState, useEffect } from 'react';
+import ScoreBar from '../../components/ScoreBar'
+import Play from ".Play"
 
-const GameBox = ({contractData, score, stars, enemies, ship, turn, updateRegister}: props) => {
+const GameBox = ({contractData, turnData, updateRegister}: props) => {
+  const [stars, updateStars] = useState([]);
+  const [ship, updateShip] = useState({positionX: 0, positionY: 0});
+  const [turn, updateTurn] = useState(0);
+  
+  const incrimentTurn = () => {
+    updateTurn(turn + 1)
+    console.log('turn', turn)
+    };
+
+  useEffect(() => {
+    async function getPlayerPosition() {
+      let positionX = turnData[turn].args.ships.positionX.toNumber(); 
+      let positionY = turnData[turn].args.ships.positionY.toNumber(); 
+        updateShip(oldState => {return{...oldState, positionX, positionY}});
+        }
+
+    async function getStarPosition() {
+      const starArray = [];
+      for(let i = 0; i < 16; i++){
+        if(turnData[turn].args.allStars[i].isActive){
+          let x = turnData[turn].args.allStars[i].positionX.toNumber(); 
+          let y = turnData[turn].args.allStars[i].positionY.toNumber(); 
+          const star = {positionX: x, positionY: y}
+          starArray.push(star);
+          }
+        }
+      updateStars(starArray);
+    } 
+
+    getStarPosition();
+    getPlayerPosition(); 
+  }, [turn])
+
   return(
     <div>
-      <div class="absolute left-28">
-        <div class="absolute top-20 left-80 z-10">
-          {turn < 30 ? 
-            <Sprites stars={stars} enemies={enemies} ship={ship} /> 
-          :
-            <GameOver updateRegister={updateRegister} contractData={contractData}/>
-          }
+      <Play incrimentTurn={incrimentTurn}/>
+        <div class="absolute left-28">
+          <div class="absolute top-20 left-80 z-10">
+            {turn < 30 ? 
+              <Sprites stars={stars} ship={ship} turn={turn} /> 
+            :
+              <GameOver updateRegister={updateRegister} contractData={contractData}/>
+            }
+          </div>
         </div>
-      </div>
+      <ScoreBar turn={turn}/>
     </div>
   )
 }
@@ -24,20 +59,21 @@ export default GameBox
 
 const GameOver = ({contractData, updateRegister}: props) => {
   const [endGame, updateEndGame] = useState({score: '0', highscore: '', starsCaptured: '', gamesPlayed: ''});
+  
+    async function fetchEndGameData() {
+      let eventfilter = contractData.filters.GameOver();
+      let eventData = await contractData.queryFilter(eventfilter);
 
-  async function fetchEndGameData() {
-    let eventfilter = contractData.filters.GameOver();
-    let eventData = await contractData.queryFilter(eventfilter);
-
-    let score = eventData[0].args.score.toNumber();
-      console.log('final score', score);
-    let highscore = eventData[0].args.highScore.toNumber();
-    let starsCaptured = eventData[0].args.starsCaptured.toNumber();
-    let gamesPlayed = eventData[0].args.gamesPlayed.toNumber();
-    
-    updateEndGame({score, highscore, starsCaptured, gamesPlayed});
+      let score = eventData[0].args.score.toNumber();
+        console.log('final score', score);
+      let highscore = eventData[0].args.highScore.toNumber();
+      let starsCaptured = eventData[0].args.starsCaptured.toNumber();
+      let gamesPlayed = eventData[0].args.gamesPlayed.toNumber();
+      
+      updateEndGame({score, highscore, starsCaptured, gamesPlayed});
     }
-  fetchEndGameData();
+
+    fetchEndGameData();
 
   async function newGame(){
       updateRegister(false);
