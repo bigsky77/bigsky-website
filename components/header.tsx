@@ -19,7 +19,7 @@ const Header = () => {
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col pt-4 pb-4 pl-0 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
                <li>
-                <Link href="/dapp" class="text-gray-900 bg-white hover:border-burned-gold border animate-pulse-slow border-magentaVibrant focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700">Launch dApp</Link>
+                <Link href="" class="text-gray-900 bg-white hover:border-burned-gold border animate-pulse-slow border-magentaVibrant focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700">Launch dApp</Link>
               </li>
             </ul>
           </div>
