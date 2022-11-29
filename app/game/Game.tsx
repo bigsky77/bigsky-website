@@ -13,33 +13,26 @@ const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useE
 
 export default function Game({contractData, updateRegister} :props) {  
   const [turnData, updateTurnData] = useState(null);
-  const [turn, updateTurn] = useState(0);
-  
-  useEffect(() => {
-    let counter = 0;
-    const intervalId = setInterval(() => {
-        if(turn < 30){
-            counter++;
-            updateTurn(counter);
-          } else {
-            updateTurn(0); 
-            }  
-        }, 100)
-    
-    return () => clearInterval(intervalId);
-  }, [])
+  const [endGameData, updateEndGameData] = useState(null);
 
   async function fetchTurnComplete() {
      let eventfilter = contractData.filters.TurnComplete();
      let eventData = await contractData.queryFilter(eventfilter);
        updateTurnData(eventData);
-  }
+    }
   fetchTurnComplete();
   
-  if (turnData){
+  async function fetchGameOver() {
+     let eventfilter = contractData.filters.GameOver();
+     let eventData = await contractData.queryFilter(eventfilter);
+       updateEndGameData(eventData);
+    }
+  fetchGameOver();
+  
+  if (turnData && endGameData){
       return(
         <div>
-          <GameBox turnData={turnData} turn={turn}/> 
+          <GameBox turnData={turnData} endGameData={endGameData}/> 
         </div>
       )
     } else {
