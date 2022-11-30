@@ -2,6 +2,7 @@ import Sphynx from '../public/sphynx.jpg.png'
 import Image from 'next/image'
 import Link from "next/link"
 import WalletModal from './walletModal'
+import LeaderModal from './leadermodal'
 import NetworkCard from '../app/connectorCards/NetworkCard'
 
 const NavBar = () => {
@@ -17,7 +18,10 @@ const NavBar = () => {
           </button>
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul class="flex flex-col pt-4 pb-4 pl-0 mt-4 border border-red-100 rounded-lg bg-transparent md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 ">
-               <li>
+              <li>
+               <LeaderModal/>
+              </li>
+              <li>
                <WalletModal/>
               </li>
             </ul>
