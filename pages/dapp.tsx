@@ -33,13 +33,17 @@ const Dapp = () => {
       } 
       fetchContract();
     }, []);
+  
+  const newGame = () => {
+      updateRegister(false);
+    }
 
   return(
     <div class="h-screen bg-dark-cyan">
       <NavBar/>
         <div class="flex flex-grow justify-center">
            { isRegister ? (
-             <Game contractData={contractData} updateRegister={updateRegister}/>
+             <Game contractData={contractData} newGame={newGame}/>
            ) : (
              <RegisterShip isRegister={isRegister} updateRegister={updateRegister}/>
            )}

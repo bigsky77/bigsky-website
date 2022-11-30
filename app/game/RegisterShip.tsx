@@ -8,7 +8,7 @@ import {ethers} from 'ethers'
 import { hooks, metaMask } from '../connectors/metaMask'
 import { address } from '../../address.ts'
 
-const { abi } = require('abi/bigsky.json');
+const { abi } = require('../../../bigsky-contracts/out/BigSky.sol/BigSky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
 const RegisterShip = ({updateRegister}: props) => {

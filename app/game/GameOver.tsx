@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const GameOver = ({endGameData, updateRegister}: props) => {
+const GameOver = ({endGameData, newGame}: props) => {
     const [endGame, updateEndGame] = useState({score: '0', highscore: '', starsCaptured: '', gamesPlayed: ''});
   
     useEffect(() => {
@@ -15,10 +15,6 @@ const GameOver = ({endGameData, updateRegister}: props) => {
       fetchEndGameData();
     },[]);
 
-    function newGame() {
-        updateRegister(true);
-      }
-  
    return(
     <div>
       <div class="absolute top-36 left-80 w-60 h-75 bg-dark-cyan border border-double border-magentaVibrant rounded-md border-4 z-10">

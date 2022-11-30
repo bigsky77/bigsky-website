@@ -7,12 +7,16 @@ import { hooks, metaMask } from '../connectors/metaMask'
 import { address } from '../../address.ts'
 
 import GameBox from './GameBox'
+import GameOver from './GameOver'
+import Play from './Play'
+import ScoreBar from '../../components/scorebar'
 
 const { abi } = require('../../../bigsky-contracts/out/BigSky.sol/BigSky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
-export default function Game({contractData, updateRegister} :props) {  
+export default function Game({contractData, newGame} :props) {  
   const [turnData, updateTurnData] = useState(null);
+  const [turn, updateTurn] = useState(0);
   const [endGameData, updateEndGameData] = useState(null);
 
   async function fetchTurnComplete() {
@@ -30,10 +34,20 @@ export default function Game({contractData, updateRegister} :props) {
   fetchGameOver();
   
   if (turnData && endGameData){
-      return(
-        <div>
-          <GameBox turnData={turnData} endGameData={endGameData}/> 
-        </div>
+    return(              
+      <div>
+        <Play turn={turn} updateTurn={updateTurn} />
+            <div class="absolute left-28">
+              <div class="absolute top-20 left-80 z-10">
+                { turn < 30 ? (
+                  <GameBox turnData={turnData} turn={turn} endGameData={endGameData} /> 
+                ) : (
+                  <GameOver newGame={newGame} endGameData={endGameData}/>
+                )}
+              </div>
+            </div>
+          <ScoreBar turn={turn}/>
+      </div>
       )
     } else {
       return(null)

@@ -1,7 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
-const Play = ({reset, decreaseTurn, increaseTurn}: props) => {
+const Play = ({turn, updateTurn}: props) => {
+  
+  const increaseTurn = () => {
+    if(turn < 30){
+      updateTurn((turn) => turn + 1);
+      } else {
+      updateTurn((turn) => 30);
+      }
+  }
 
+  const decreaseTurn = () => {
+    if(turn > 0){
+    updateTurn((turn) => turn - 1);
+    } else {
+        updateTurn((turn) => 0)
+      }
+  }
+  
+  const reset = () => updateTurn((turn) => 0);
+ 
   return( 
     <div class="flex justify-center pt-6">
      <div class="absolute top-28 border border-solid border-2 border-magentaVibrant rounded-lg px-24 py-2.5">
