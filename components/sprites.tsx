@@ -28,7 +28,7 @@ const Sprites = ({ship, stars, turn }: props) => {
 
   return(
     <div class="absolute z-10"
-         style = {{top: '60px', left: '67px', height: '430px', width: '695px'}}>
+         style = {{top: '60px', left: '81px', height: '430px', width: '695px'}}>
           <p>{starRows}</p>
       <Flipper flipKey={turn}>
           <p>{shipRows}</p>

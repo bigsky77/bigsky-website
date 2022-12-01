@@ -1,7 +1,7 @@
 
 const Grid = () => {
   return(
-      <div class="absolute top-48 w-1/2 h-1/2 ">
+      <div class="absolute top-48 w-[834px] h-[567px]">
         <div class="flex flex-row-4 gap-1 flex-wrap">
            <box class="animate-pulse-slow border-solid border-burned-gold border-r border-b w-10 h-10"></box> 
                 <box class="animate-pulse-slow border-solid border-burned-gold border-l border-r border-b w-10 h-10"></box> 

@@ -41,7 +41,7 @@ const Dapp = () => {
   return(
     <div class="h-screen bg-dark-cyan">
       <NavBar/>
-        <div class="flex flex-grow justify-center">
+        <div class="flex grow-0 shrink-0 justify-center">
            { isRegister ? (
              <Game contractData={contractData} newGame={newGame}/>
            ) : (
