@@ -24,7 +24,9 @@ const RegisterShip = ({updateRegister}: props) => {
      const bigsky = new Contract(address, abi, provider.getSigner());
      const shipAddress = event.target.address.value;
      let result = await bigsky.launchShip(shipAddress);
-     
+      
+     console.log('launch ship transaction', result);
+      
      await result.wait();
      updateLoading(false);
 
