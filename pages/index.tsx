@@ -13,9 +13,9 @@ export default function Home() {
     <div class="h-screen bg-dark-cyan">
       <Header/>
         <div class="flex justify-center">
-          <div class="absolute top-80">
-            <h1 class="text-center font-neue text-9xl text-magentaVibrant">BigSky</h1>
-              <div class="font-italics pt-8 text-6xl text-burned-gold">
+          <div class="absolute md:top-80 top-56">
+            <h1 class="text-center font-neue text-6xl md:text-9xl text-magentaVibrant">BigSky</h1>
+              <div class="font-italics pt-8 text-3xl md:text-6xl text-goldVibrant">
                <Typewriter options={{skipAddStyles: true}} onInit={(typewriter) => {
                   typewriter.typeString('anything is possible...')
                   .callFunction(() => {

@@ -20,6 +20,7 @@ module.exports = {
         'goldVibrant': '#FEB239',
         'magentaVibrant': '#FC72FF',
         'redVibrant' : '#F14544',
+        'goldVibrant': '#FEB239',
       },
       fontFamily: {
         neue: ("NeueMachine"),
