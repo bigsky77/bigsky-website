@@ -7,10 +7,10 @@ const Header = () => {
       
     return(
       <div>
-      <nav class="bg-gradient-to-r from-purple-700 to-purple900 border-burned-gold border-solid border-b-2 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+      <nav class="bg-gradient-to-r min-h-[84px] from-purple-700 to-purple900 border-burned-gold border-solid border-b-2 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
         <div class="container flex flex-wrap items-center h-auto justify-between mx-auto">
           <Link href="/" class="flex items-center">
-              <Image src={Sphynx} class="absolute w-16 h-20 md:h-auto md:w-24 md:pb-1.5 left-1 pt-1 pb-2.5"/>
+              <Image src={Sphynx} class="absolute w-20 min-h-[100px] pt-4 md:h-auto md:w-24 md:pb-1.5 left-1 md:pt-1 md:pb-2.5"/>
           </Link>
           <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
             <span class="sr-only">Open main menu</span>
