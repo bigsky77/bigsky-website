@@ -1,29 +1,14 @@
-import Grid from '../../components/grid'
 import React, { useState, useEffect } from 'react';
-import { useWeb3React } from '@web3-react/core'
-import type { Web3ReactHooks } from '@web3-react/core'
-import { Contract } from "@ethersproject/contracts";
-import { Web3Provider } from '@ethersproject/providers'
-import {ethers} from 'ethers'
-import { hooks, metaMask } from '../connectors/metaMask'
-import { address } from '../../address.ts'
 
-const { abi } = require('../../../bigsky-contracts/out/BigSky.sol/BigSky.json');
-const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
-
-const RegisterShip = ({updateRegister}: props) => {
+const RegisterShip = ({contractData, updateRegister}: props) => {
  const [loading, updateLoading] = useState(false);
-
- const provider = useProvider();
- const { library } = useWeb3React<Web3Provider>();
 
   const handleSubmit = async (event) => {
      event.preventDefault();
      updateLoading(true);
 
-     const bigsky = new Contract(address, abi, provider.getSigner());
      const shipAddress = event.target.address.value;
-     let result = await bigsky.launchShip(shipAddress);
+     let result = await contractData.launchShip(shipAddress);
       
      console.log('launch ship transaction', result);
       
