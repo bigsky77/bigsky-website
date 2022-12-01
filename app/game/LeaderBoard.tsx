@@ -7,7 +7,7 @@ import { hooks, metaMask } from '../connectors/metaMask'
 import { address } from '../../address.ts'
 import {formatAddress, rankPlayers} from '../../lib/helpers'
 
-const { abi } = require('../abi/bigsky.json');
+const { abi } = require('../../abi/bigsky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
 const LeaderBoard = ({update}: props) => {
