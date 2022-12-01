@@ -11,7 +11,7 @@ import GameOver from './GameOver'
 import Play from './Play'
 import ScoreBar from '../../components/scorebar'
 
-const { abi } = require('../../../bigsky-contracts/out/BigSky.sol/BigSky.json');
+const { abi } = require('../../abi/bigsky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
 export default function Game({contractData, newGame} :props) {  
@@ -19,12 +19,14 @@ export default function Game({contractData, newGame} :props) {
   const [turn, updateTurn] = useState(0);
   const [endGameData, updateEndGameData] = useState(null);
 
-  async function fetchTurnComplete() {
-     let eventfilter = contractData.filters.TurnComplete();
-     let eventData = await contractData.queryFilter(eventfilter);
-       updateTurnData(eventData);
-    }
-  fetchTurnComplete();
+  useEffect(() => {
+    async function fetchTurnComplete() {
+       let eventfilter = contractData.filters.TurnComplete();
+       let eventData = await contractData.queryFilter(eventfilter);
+        updateTurnData(eventData);
+      }
+    fetchTurnComplete();
+  },[turn])
   
   async function fetchGameOver() {
      let eventfilter = contractData.filters.GameOver();

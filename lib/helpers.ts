@@ -38,15 +38,12 @@ function sortResults(players, playerList) {
       return el.args.playerAddress == playerList[i]
     })
     var highScore = newArray.reduce(function(prev, current){
-      return(prev.y > current.y) ? prev : current
+      return(prev.y < current.y) ? prev : current
     })
     allPlayersSorted.push(highScore);
   }
 
-  console.log('new players array', newArray );
-  console.log('highscore', highScore);
   console.log('all high scores', allPlayersSorted);
-  
   return allPlayersSorted.reverse();
 }
 

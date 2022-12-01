@@ -15,7 +15,7 @@ import {ethers} from 'ethers'
 import { hooks, metaMask } from '../app/connectors/metaMask'
 import { address } from '../address.ts'
 
-const { abi } = require('../../bigsky-contracts/out/BigSky.sol/BigSky.json');
+const { abi } = require('../abi/bigsky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
 const Dapp = () => {

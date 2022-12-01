@@ -10,7 +10,7 @@ import {formatAddress, rankPlayers} from '../../lib/helpers'
 const { abi } = require('../../../bigsky-contracts/out/BigSky.sol/BigSky.json');
 const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useENSNames} = hooks
 
-const LeaderBoard = () => {
+const LeaderBoard = ({update}: props) => {
   const [leaderboard, updateLeaderBoard] = useState(null);
   const { active, library, account } = useWeb3React<Web3Provider>();   
         
@@ -27,7 +27,7 @@ const LeaderBoard = () => {
         } 
     
     fetchLeaderBoard();
-  }, []);
+  }, [update]);
 
  if(leaderboard){
 
