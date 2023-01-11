@@ -1,0 +1,257 @@
+
+> bigsky-website@0.1.0 dev
+> next dev
+
+ready - started server on 0.0.0.0:3000, url: http://localhost:3000
+warn  - The `app` dir is experimental. Please add `{experimental:{appDir: true}}` to your `next.config.js` to enable it
+event - compiled client and server successfully in 540 ms (778 modules)
+wait  - compiling /_error (client and server)...
+wait  - compiling / (client and server)...
+event - compiled client and server successfully in 267 ms (854 modules)
+Warning: Invalid DOM property `class`. Did you mean `className`?
+    at div
+    at Home
+    at Web3ReactProvider (/home/simon/bigsky/website/node_modules/@web3-react/core/dist/provider.js:30:30)
+    at App (webpack-internal:///./pages/_app.tsx:45:16)
+    at StyleRegistry (/home/simon/bigsky/website/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/simon/bigsky/website/node_modules/next/dist/shared/lib/router/adapters.js:60:11)
+    at AppContainer (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:289:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:325:57)
+    at div
+    at Body (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:612:21)
+Warning: Invalid DOM property `fill-rule`. Did you mean `fillRule`?
+    at path
+    at svg
+    at button
+    at div
+    at nav
+    at div
+    at Header
+    at div
+    at Home
+    at Web3ReactProvider (/home/simon/bigsky/website/node_modules/@web3-react/core/dist/provider.js:30:30)
+    at App (webpack-internal:///./pages/_app.tsx:45:16)
+    at StyleRegistry (/home/simon/bigsky/website/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/simon/bigsky/website/node_modules/next/dist/shared/lib/router/adapters.js:60:11)
+    at AppContainer (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:289:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:325:57)
+    at div
+    at Body (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:612:21)
+Warning: Invalid DOM property `clip-rule`. Did you mean `clipRule`?
+    at path
+    at svg
+    at button
+    at div
+    at nav
+    at div
+    at Header
+    at div
+    at Home
+    at Web3ReactProvider (/home/simon/bigsky/website/node_modules/@web3-react/core/dist/provider.js:30:30)
+    at App (webpack-internal:///./pages/_app.tsx:45:16)
+    at StyleRegistry (/home/simon/bigsky/website/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/simon/bigsky/website/node_modules/next/dist/shared/lib/router/adapters.js:60:11)
+    at AppContainer (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:289:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:325:57)
+    at div
+    at Body (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:612:21)
+warn  - Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/basic-features/fast-refresh#how-it-works
+tryApplyUpdates/<@webpack-internal:///./node_modules/next/dist/client/dev/error-overlay/hot-dev-client.js:262:32
+
+wait  - compiling /dapp...
+warn  - ./address.ts
+Should not import the named export 'transactions'.'0'.'contractAddress' (imported as 'transactions') from default-exporting module (only default export is available soon)
+
+./app/connectors/metaMask.ts
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/app/connectors/metaMask.ts
+    Used by 4 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/pages/_app.tsx
+* /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/app/connectors/metamask.ts
+    Used by 1 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/components/walletModal.tsx
+
+./address.ts
+Should not import the named export 'transactions'.'0'.'contractAddress' (imported as 'transactions') from default-exporting module (only default export is available soon)
+
+./app/connectors/metaMask.ts
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/app/connectors/metaMask.ts
+    Used by 4 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/pages/_app.tsx
+* /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/app/connectors/metamask.ts
+    Used by 1 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/components/walletModal.tsx
+Warning: Invalid DOM property `tabindex`. Did you mean `tabIndex`?
+    at div
+    at div
+    at LeaderModal (webpack-internal:///./components/leadermodal.tsx:14:80)
+    at li
+    at ul
+    at div
+    at div
+    at nav
+    at NavBar
+    at div
+    at Dapp (webpack-internal:///./pages/dapp.tsx:37:89)
+    at Web3ReactProvider (/home/simon/bigsky/website/node_modules/@web3-react/core/dist/provider.js:30:30)
+    at App (webpack-internal:///./pages/_app.tsx:45:16)
+    at StyleRegistry (/home/simon/bigsky/website/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/simon/bigsky/website/node_modules/next/dist/shared/lib/router/adapters.js:60:11)
+    at AppContainer (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:289:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:325:57)
+    at div
+    at Body (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:612:21)
+Warning: Invalid DOM property `stroke-linecap`. Did you mean `strokeLinecap`?
+    at path
+    at svg
+    at button
+    at div
+    at WalletModal (webpack-internal:///./components/walletModal.tsx:22:92)
+    at li
+    at ul
+    at div
+    at div
+    at nav
+    at NavBar
+    at div
+    at Dapp (webpack-internal:///./pages/dapp.tsx:37:89)
+    at Web3ReactProvider (/home/simon/bigsky/website/node_modules/@web3-react/core/dist/provider.js:30:30)
+    at App (webpack-internal:///./pages/_app.tsx:45:16)
+    at StyleRegistry (/home/simon/bigsky/website/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/simon/bigsky/website/node_modules/next/dist/shared/lib/router/adapters.js:60:11)
+    at AppContainer (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:289:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:325:57)
+    at div
+    at Body (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:612:21)
+Warning: Invalid DOM property `stroke-linejoin`. Did you mean `strokeLinejoin`?
+    at path
+    at svg
+    at button
+    at div
+    at WalletModal (webpack-internal:///./components/walletModal.tsx:22:92)
+    at li
+    at ul
+    at div
+    at div
+    at nav
+    at NavBar
+    at div
+    at Dapp (webpack-internal:///./pages/dapp.tsx:37:89)
+    at Web3ReactProvider (/home/simon/bigsky/website/node_modules/@web3-react/core/dist/provider.js:30:30)
+    at App (webpack-internal:///./pages/_app.tsx:45:16)
+    at StyleRegistry (/home/simon/bigsky/website/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/simon/bigsky/website/node_modules/next/dist/shared/lib/router/adapters.js:60:11)
+    at AppContainer (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:289:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:325:57)
+    at div
+    at Body (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:612:21)
+Warning: Invalid DOM property `stroke-width`. Did you mean `strokeWidth`?
+    at path
+    at svg
+    at button
+    at div
+    at WalletModal (webpack-internal:///./components/walletModal.tsx:22:92)
+    at li
+    at ul
+    at div
+    at div
+    at nav
+    at NavBar
+    at div
+    at Dapp (webpack-internal:///./pages/dapp.tsx:37:89)
+    at Web3ReactProvider (/home/simon/bigsky/website/node_modules/@web3-react/core/dist/provider.js:30:30)
+    at App (webpack-internal:///./pages/_app.tsx:45:16)
+    at StyleRegistry (/home/simon/bigsky/website/node_modules/styled-jsx/dist/index/index.js:449:36)
+    at PathnameContextProviderAdapter (/home/simon/bigsky/website/node_modules/next/dist/shared/lib/router/adapters.js:60:11)
+    at AppContainer (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:289:29)
+    at AppContainerWithIsomorphicFiberStructure (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:325:57)
+    at div
+    at Body (/home/simon/bigsky/website/node_modules/next/dist/server/render.js:612:21)
+wait  - compiling...
+warn  - ./address.ts
+Should not import the named export 'transactions'.'0'.'contractAddress' (imported as 'transactions') from default-exporting module (only default export is available soon)
+
+./app/connectors/metaMask.ts
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/app/connectors/metaMask.ts
+    Used by 4 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/pages/_app.tsx
+* /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/app/connectors/metamask.ts
+    Used by 1 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/components/walletModal.tsx
+
+./address.ts
+Should not import the named export 'transactions'.'0'.'contractAddress' (imported as 'transactions') from default-exporting module (only default export is available soon)
+
+./app/connectors/metaMask.ts
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/app/connectors/metaMask.ts
+    Used by 4 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/pages/_app.tsx
+* /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/app/connectors/metamask.ts
+    Used by 1 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/components/walletModal.tsx
+warn  - ./address.ts
+Should not import the named export 'transactions'.'0'.'contractAddress' (imported as 'transactions') from default-exporting module (only default export is available soon)
+
+./app/connectors/metaMask.ts
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/app/connectors/metaMask.ts
+    Used by 4 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/pages/_app.tsx
+* /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/app/connectors/metamask.ts
+    Used by 1 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/components/walletModal.tsx
+
+./address.ts
+Should not import the named export 'transactions'.'0'.'contractAddress' (imported as 'transactions') from default-exporting module (only default export is available soon)
+
+./app/connectors/metaMask.ts
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/app/connectors/metaMask.ts
+    Used by 4 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/pages/_app.tsx
+* /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/app/connectors/metamask.ts
+    Used by 1 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/components/walletModal.tsx
+wait  - compiling /...
+warn  - ./address.ts
+Should not import the named export 'transactions'.'0'.'contractAddress' (imported as 'transactions') from default-exporting module (only default export is available soon)
+
+./app/connectors/metaMask.ts
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/app/connectors/metaMask.ts
+    Used by 4 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/pages/_app.tsx
+* /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/app/connectors/metamask.ts
+    Used by 1 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/compiled/@next/react-refresh-utils/dist/loader.js!/home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use[1]!/home/simon/bigsky/website/components/walletModal.tsx
+
+./address.ts
+Should not import the named export 'transactions'.'0'.'contractAddress' (imported as 'transactions') from default-exporting module (only default export is available soon)
+
+./app/connectors/metaMask.ts
+There are multiple modules with names that only differ in casing.
+This can lead to unexpected behavior when compiling on a filesystem with other case-semantic.
+Use equal casing. Compare these module identifiers:
+* /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/app/connectors/metaMask.ts
+    Used by 4 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/pages/_app.tsx
+* /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/app/connectors/metamask.ts
+    Used by 1 module(s), i. e.
+    /home/simon/bigsky/website/node_modules/next/dist/build/webpack/loaders/next-swc-loader.js??ruleSet[1].rules[3].oneOf[2].use!/home/simon/bigsky/website/components/walletModal.tsx

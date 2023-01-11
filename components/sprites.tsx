@@ -1,7 +1,7 @@
 import { Flipper, Flipped } from 'react-flip-toolkit'
 import React, { useState } from 'react'
 
-const Sprites = ({ship, stars, turn }: props) => {
+const Sprites = ({ship, stars, turn, enemies }: props) => {
 
   const starRows = [];
     for (let i = 0; i < stars.length; i++){
@@ -10,6 +10,17 @@ const Sprites = ({ship, stars, turn }: props) => {
               style = {{top: stars[i].positionY * 44.5 + 'px', 
                         left: stars[i].positionX * 44.5 + 'px'}}
            >⭐️ <p class="text-sm text-indian-red">({stars[i].positionX},{stars[i].positionY})</p></p>)} else {
+               return null
+             }
+      }
+   
+  const enemyRows = [];
+    for (let i = 0; i < enemies.length; i++){
+        if(enemies){
+          enemyRows.push(<p class="absolute font-neue text-3xl text-magentaVibrant"
+              style = {{top: enemies[i].positionY * 44.5 + 'px', 
+                        left: enemies[i].positionX * 44.5 + 'px'}}
+           >💀 <p class="text-sm text-indian-red">({enemies[i].positionX},{enemies[i].positionY})</p></p>)} else {
                return null
              }
       }
