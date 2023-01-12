@@ -11,14 +11,14 @@ const Play = ({turn, updateTurn}: props) => {
   }
 
   const decreaseTurn = () => {
-    if(turn > 0){
+    if(turn > 1){
     updateTurn((turn) => turn - 1);
     } else {
-        updateTurn((turn) => 0)
+        updateTurn((turn) => 1)
       }
   }
   
-  const reset = () => updateTurn((turn) => 0);
+  const reset = () => updateTurn((turn) => 1);
  
   return( 
     <div class="flex justify-center pt-6">

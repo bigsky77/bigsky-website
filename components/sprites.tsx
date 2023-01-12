@@ -24,7 +24,7 @@ const Sprites = ({ship, stars, turn, enemies }: props) => {
                return null
              }
       }
-      
+   
   const shipRows = [];
     for (let i = 0; i < 1; i++){
         shipRows.push(
@@ -41,6 +41,7 @@ const Sprites = ({ship, stars, turn, enemies }: props) => {
     <div class="absolute z-10"
          style = {{top: '60px', left: '81px', height: '430px', width: '695px'}}>
           <p>{starRows}</p>
+          <p>{enemyRows}</p>
       <Flipper flipKey={turn}>
           <p>{shipRows}</p>
       </Flipper>

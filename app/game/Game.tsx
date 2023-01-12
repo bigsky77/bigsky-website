@@ -16,7 +16,7 @@ const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useE
 
 export default function Game({contractData, newGame} :props) {  
   const [turnData, updateTurnData] = useState(null);
-  const [turn, updateTurn] = useState(0);
+  const [turn, updateTurn] = useState(1);
   const [endGameData, updateEndGameData] = useState(null);
 
   useEffect(() => {
@@ -24,6 +24,7 @@ export default function Game({contractData, newGame} :props) {
        let eventfilter = contractData.filters.TurnComplete();
        let eventData = await contractData.queryFilter(eventfilter);
         updateTurnData(eventData);
+        console.log("event data", eventData[turn].args);
       }
     fetchTurnComplete();
   },[turn])
@@ -35,7 +36,7 @@ export default function Game({contractData, newGame} :props) {
     }
   fetchGameOver();
   
-  if (turnData && endGameData){
+  if (turnData !== undefined && turnData !== null){
     return(              
       <div>
         <Play turn={turn} updateTurn={updateTurn} />

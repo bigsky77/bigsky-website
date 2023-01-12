@@ -10,14 +10,16 @@ const GameBox = ({endGameData, turnData, turn, newGame}: props) => {
   const [enemies, updateEnemies] = useState([]);
   const [ship, updateShip] = useState({positionX: 0, positionY: 0});
 
-  useEffect(() => {
+  useEffect(() => { 
     async function getPlayerPosition() {
+      console.log("turn data", turnData[1]);
       let positionX = turnData[turn].args.ships.positionX.toNumber(); 
       let positionY = turnData[turn].args.ships.positionY.toNumber(); 
         updateShip(oldState => {return{...oldState, positionX, positionY}});
       }
 
     async function getStarPosition() {
+      console.log("turn data", turnData[turn]);
       const starArray = [];
       for(let i = 0; i < 16; i++){
         if(turnData[turn].args.allStars[i].isActive){
@@ -31,8 +33,9 @@ const GameBox = ({endGameData, turnData, turn, newGame}: props) => {
     }
 
     async function getEnemyPosition() {
+      console.log("turn data", turnData[turn]);
       const enemyArray = [];
-      for(let i = 0; i < 2; i++){
+      for(let i = 0; i < 3; i++){
         if(turnData[turn].args.allEnemies[i].isActive){
           let x = turnData[turn].args.allEnemies[i].positionX.toNumber(); 
           let y = turnData[turn].args.allEnemies[i].positionY.toNumber(); 
@@ -43,9 +46,9 @@ const GameBox = ({endGameData, turnData, turn, newGame}: props) => {
       updateEnemies(enemyArray);
     } 
 
-    getStarPosition();
-    getPlayerPosition();
     getPlayerPosition(); 
+    getStarPosition();
+    getEnemyPosition();
   }, [turn])
   
   return(
