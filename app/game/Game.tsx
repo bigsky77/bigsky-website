@@ -18,15 +18,21 @@ export default function Game({contractData, newGame} :props) {
   const [turnData, updateTurnData] = useState(null);
   const [turn, updateTurn] = useState(1);
   const [endGameData, updateEndGameData] = useState(null);
+ 
+  async function fetchInitialState() {
+    let eventfilter = contractData.filters.TurnComplete();
+    let eventData = await contractData.queryFilter(eventfilter);
+      updateTurnData(eventData);
+  }
+  fetchInitialState();
 
   useEffect(() => {
     async function fetchTurnComplete() {
-       let eventfilter = contractData.filters.TurnComplete();
-       let eventData = await contractData.queryFilter(eventfilter);
-        updateTurnData(eventData);
-        console.log("event data", eventData[turn].args);
-      }
-    fetchTurnComplete();
+         let eventfilter = contractData.filters.TurnComplete();
+         let eventData = await contractData.queryFilter(eventfilter);
+          updateTurnData(eventData);
+        }
+      fetchTurnComplete();
   },[turn])
   
   async function fetchGameOver() {
