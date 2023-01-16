@@ -32,7 +32,7 @@ const GameBox = ({endGameData, turnData, turn, newGame}: props) => {
 
     async function getEnemyPosition() {
       const enemyArray = [];
-      for(let i = 0; i < 3; i++){
+      for(let i = 0; i < 2; i++){
         if(turnData[turn].args.allEnemies[i].isActive){
           let x = turnData[turn].args.allEnemies[i].positionX.toNumber(); 
           let y = turnData[turn].args.allEnemies[i].positionY.toNumber(); 
