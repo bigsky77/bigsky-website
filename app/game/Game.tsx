@@ -42,7 +42,8 @@ export default function Game({contractData, newGame} :props) {
     }
   fetchGameOver();
   
-  if (turnData !== undefined && turnData !== null){
+//  if (turnData !== undefined && turnData !== null){
+  if (turnData){
     return(              
       <div>
         <Play turn={turn} updateTurn={updateTurn} />
