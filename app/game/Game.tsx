@@ -56,7 +56,7 @@ export default function Game({contractData, newGame} :props) {
                 )}
               </div>
             </div>
-          <ScoreBar turn={turn}/>
+          <ScoreBar turn={turn} turnData={turnData}/>
       </div>
       )
     } else {
