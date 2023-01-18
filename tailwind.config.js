@@ -13,7 +13,7 @@ module.exports = {
       },
       colors: {
         'dark-cyan': '#141e24',
-        'burned-gold': '#FEB239',
+        'burned-gold': '#CD955C',
         'indian-red': '#CD5C5C',
         'purple900': '#1C0337',
         'soft-white': '#faf9fa',

@@ -16,16 +16,23 @@ const { useChainId, useAccounts, useIsActivating, useIsActive, useProvider, useE
 
 export default function Game({contractData, newGame} :props) {  
   const [turnData, updateTurnData] = useState(null);
-  const [turn, updateTurn] = useState(0);
+  const [turn, updateTurn] = useState(1);
   const [endGameData, updateEndGameData] = useState(null);
+ 
+  async function fetchInitialState() {
+    let eventfilter = contractData.filters.TurnComplete();
+    let eventData = await contractData.queryFilter(eventfilter);
+      updateTurnData(eventData);
+  }
+  fetchInitialState();
 
   useEffect(() => {
     async function fetchTurnComplete() {
-       let eventfilter = contractData.filters.TurnComplete();
-       let eventData = await contractData.queryFilter(eventfilter);
-        updateTurnData(eventData);
-      }
-    fetchTurnComplete();
+         let eventfilter = contractData.filters.TurnComplete();
+         let eventData = await contractData.queryFilter(eventfilter);
+          updateTurnData(eventData);
+        }
+      fetchTurnComplete();
   },[turn])
   
   async function fetchGameOver() {
@@ -35,7 +42,8 @@ export default function Game({contractData, newGame} :props) {
     }
   fetchGameOver();
   
-  if (turnData && endGameData){
+//  if (turnData !== undefined && turnData !== null){
+  if (turnData){
     return(              
       <div>
         <Play turn={turn} updateTurn={updateTurn} />
@@ -48,7 +56,7 @@ export default function Game({contractData, newGame} :props) {
                 )}
               </div>
             </div>
-          <ScoreBar turn={turn}/>
+          <ScoreBar turn={turn} turnData={turnData}/>
       </div>
       )
     } else {
