@@ -14,7 +14,7 @@ const Footer = () => {
                   <a href="https://twitter.com/bigsky_gg" class="mr-4 hover:underline md:mr-6">social</a>
               </li>
               <li>
-                  <a href="https://github.com/bigsky77" class="hover:underline">dev</a>
+                  <a href="https://bigsky-1.gitbook.io/bigsky/" class="hover:underline">dev</a>
               </li>
           </ul>
       </footer>
