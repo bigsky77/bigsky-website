@@ -8,13 +8,13 @@ const Footer = () => {
           </span>
           <ul class="flex flex-wrap items-center mt-3 text-sm text-soft-white dark:text-gray-400 sm:mt-0">
               <li>
-                  <a href="https://github.com/bigsky77/bigsky-contracts" class="mr-4 hover:underline md:mr-6 ">docs</a>
+                  <a href="https://github.com/bigsky77/bigsky-contracts" class="mr-4 hover:underline md:mr-6 ">dev</a>
               </li>
               <li>
                   <a href="https://twitter.com/bigsky_gg" class="mr-4 hover:underline md:mr-6">social</a>
               </li>
               <li>
-                  <a href="https://bigsky-1.gitbook.io/bigsky/" class="hover:underline">dev</a>
+                  <a href="https://bigsky-1.gitbook.io/bigsky/" class="hover:underline">docs</a>
               </li>
           </ul>
       </footer>
