@@ -7,6 +7,7 @@ import Footer from '../components/footer'
 import Sphynx from '../public/sphynx.jpg'
 import Photo35 from '../public/photo35.jpg'
 import Typewriter from 'typewriter-effect';
+import death_machine from '../public/death_machine.png'
 
 export default function Home() {
   return (
@@ -14,18 +15,9 @@ export default function Home() {
       <Header/>
         <div class="flex justify-center">
           <div class="absolute md:top-80 top-64">
-            <h1 class="text-center font-neue text-6xl md:text-9xl text-magentaVibrant">BigSky</h1>
-              <div class="font-italics pt-8 text-3xl md:text-6xl text-goldVibrant">
-               <Typewriter options={{skipAddStyles: true}} onInit={(typewriter) => {
-                  typewriter.typeString('anything is possible...')
-                  .callFunction(() => {
-                    console.log('String typed out!');
-                  })
-                  .pauseFor(2500)
-                  .start();
-               }}
-            />
-           </div>
+            <Link href="https://docs.google.com/forms/d/e/1FAIpQLSeK8NzmvEhpMRwhFWaUfWx7Lu_pqAPQcpnzFc8te4ZBA6-fYg/viewform?usp=sf_link">
+            <Image src={death_machine}/>
+            </Link>
           </div>
         </div>
       <Footer/>
