@@ -19,7 +19,7 @@ export default function Home() {
             <h1 class="text-center font-neue text-6xl md:text-9xl text-magentaVibrant">🤖</h1>
               <div class="font-italics pt-8 text-3xl md:text-6xl text-goldVibrant">
                <Typewriter options={{skipAddStyles: true}} onInit={(typewriter) => {
-                  typewriter.typeString('anything is possible.')
+                  typewriter.typeString('we fucking love money...')
                   .callFunction(() => {
                     console.log('String typed out!');
                   })
