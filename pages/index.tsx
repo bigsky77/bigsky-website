@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div class="h-screen bg-dark-cyan">
         <div class="flex justify-center">
-          <div class="absolute md:top-64 top-64">
+          <div class="absolute md:top-48 sm:top-48">
             <h1 class="text-center font-neue text-6xl md:text-9xl text-magentaVibrant">BigSky</h1>
             <br></br>
             <br></br>
